@@ -2,7 +2,8 @@ export const theme = {
     colors: {
         mercury: "#E5E5E5",
     },
-    breakPoint: {
-        mobileMax: 767,
+    breakPoints: {
+        phoneMax: 500,
+        tabletMax: 900,
     },
 };
