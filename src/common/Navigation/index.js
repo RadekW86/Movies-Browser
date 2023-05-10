@@ -15,8 +15,8 @@ export default () => {
                 </StyledList>
             </Navigation>
             <Search
-            type="text"
-            placeholder="Search for movies..."
+                type="text"
+                placeholder="Search for movies..."
             />
         </Header>
     )
