@@ -1,6 +1,15 @@
 import styled, { css } from "styled-components";
 
 export const StyledSection = styled.section`
+margin: 0 auto;
+
+@media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
+  max-width: 672px;
+      }
+      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+  max-width: 288px;
+      }
+
   ${({ fullpage }) =>
     fullpage &&
     css`
@@ -17,8 +26,8 @@ export const StyledSection = styled.section`
 export const StyledHead = styled.div`
   margin: 12px;
 
-  @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
-    margin: 4px 8px;
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    margin: 4px 0px;
   }
 `;
 
@@ -26,6 +35,10 @@ export const StyledHeading = styled.h1`
   font-size: 36px;
   margin: 0px;
   font-weight: 600;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    font-size: 18px;
+  }
 `;
 
 export const StyledContent = styled.div`
