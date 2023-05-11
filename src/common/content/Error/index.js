@@ -1,4 +1,4 @@
-import exclamationImage from "../../../images/exclamation.svg";
+
 import {
   StyledDiv,
   StyledExclamationImage,
@@ -10,12 +10,10 @@ import {
 export const Error = () => {
   return (
     <StyledDiv>
-      <StyledExclamationImage 
-        src={exclamationImage} 
-        alt="exclamation" 
+      <StyledExclamationImage  
       />
       <StyledHeading>
-        Ooops! Something went wrong... 
+        Ooops! Something went wrong...
       </StyledHeading>
       <StyledParagraph>
         Please check your network connection and try again

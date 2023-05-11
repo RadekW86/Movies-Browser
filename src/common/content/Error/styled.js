@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {ReactComponent as exclamationImage}  from "../../../images/exclamation.svg";
 
 export const StyledDiv = styled.div`
   margin: 151px 0px;
@@ -8,17 +9,17 @@ export const StyledDiv = styled.div`
     margin: 50px 0px;
   }
 `;
-export const StyledExclamationImage = styled.img`
+export const StyledExclamationImage = styled(exclamationImage)`
   max-width: 120px;
   max-height: 120px;
 `;
 
 export const StyledHeading = styled.h2`
-  margin: 0px;
+  margin: 0px auto;
   margin-top: 38.16px;
   max-width: 600px;
   font-size: 36px;
-  font-weight: 500;
+  font-weight: 600;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 18px;
@@ -44,6 +45,7 @@ export const StyledReturnButton = styled.button`
   font-family: "Open Sans", sans-serif;
   background-color: ${({ theme }) => theme.colors.blue};
   border-radius: 5px;
+  border: none;
   width: 181px;
   height: 51px;
 
