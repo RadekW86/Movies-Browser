@@ -40,13 +40,44 @@ export const StyledHeading = styled.h1`
     font-size: 18px;
   }
 `;
-
-export const StyledContent = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-`;
-
 export const StyledFoot = styled.div`
   text-align: center;
+`;
+
+export const StyledContent = styled.ul`
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+
+  ${({ movies }) =>
+    movies &&
+    css`
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 24px;
+
+      @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+      }
+      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+        grid-template-columns: 1fr;
+        grid-gap: 16px;
+      }
+    `}
+  ${({ people }) =>
+    people &&
+    css`
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-gap: 24px;
+
+      @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+      }
+      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 16px;
+      }
+    `};
 `;

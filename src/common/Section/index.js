@@ -1,17 +1,19 @@
 import {
-  StyledContent,
   StyledFoot,
   StyledHead,
   StyledHeading,
   StyledSection,
+  StyledContent,
 } from "./styled";
 
-export const Section = ({ title, content, foot }) => (
+export const Section = ({ title, movies, people, content, foot }) => (
   <StyledSection fullpage>
     <StyledHead>
       <StyledHeading>{title}</StyledHeading>
     </StyledHead>
-    <StyledContent>{content}</StyledContent>
+    <StyledContent movies={movies} people={people}>
+      {content}
+    </StyledContent>
     <StyledFoot>{foot}</StyledFoot>
   </StyledSection>
 );
