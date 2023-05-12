@@ -88,8 +88,8 @@ export const StyledPersonIcon = styled(PersonIcon)`
 `;
 
 export const ContainerInf = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr auto;
 `;
 
 export const DescriptionWrapper = styled.div`
@@ -134,7 +134,7 @@ export const ProductionInf = styled.p`
 `;
 
 export const MovieGenresWrapper = styled.div`
-  margin: 0;
+  margin: 0 0 30px;
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
@@ -149,7 +149,6 @@ export const MovieGenresWrapper = styled.div`
 `;
 
 export const MovieGenre = styled.div`
-  margin-bottom: 30px;
   padding: 8px 16px;
   border-radius: 5px;
   align-items: center;
