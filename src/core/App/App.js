@@ -5,9 +5,10 @@ import { Loading } from "../../common/content/Loading";
 import { NoResults } from "../../common/content/NoResults";
 import { BasicTile } from "../../common/content/BasicTile/index"
 import { MainTile } from "../../common/content/MainTile";
-import moviesList from "./exmapleMovies.json"
-import peopleList from "./examplePeople.json"
-import poster from "../../common/images/poster .png"
+import moviesList from "./exmapleMovies.json";
+import personDetails from "./examplePersonDetails.json";
+import movieDetails from "./exampleMovieDetails.json";
+import poster from "../../common/images/poster .png";
 
 export const App = () => (
   <Container>
@@ -17,48 +18,27 @@ export const App = () => (
         <MainTile
           movie
           poster={poster}
-          name="Mulam"
-          productionInf="2022"
-          firstInformation="05.09.1990"
-          secondInformation="China"
-          genre="lalal"
-          rate="lalal"
-          votes="lalal"
-          description="A young Chinese maiden disguises herself as a male warrior in order to save her father. Disguises herself as a male warrior in order to save her father. A young Chinese maiden disguises herself as a male warrior in order to save her father."
+          name={movieDetails.title}
+          productionYear={movieDetails.release_date}
+          firstInformation={movieDetails.production_countries[0].name}
+          secondInformation={movieDetails.release_date}
+          genres={movieDetails.genres}
+          rate={movieDetails.vote_average}
+          votes={movieDetails.vote_count}
+          description={movieDetails.overview}
         />
       }
     >
     </Section>
     <Section
-      title="Popular Movies"
-      content={
-        <MainTile
-          movie
-          poster={false}
-          name="Mulam"
-          productionInf="2022"
-          firstInformation="China"
-          secondInformation="05.09.1990"
-          genre="lalal"
-          rate="lalal"
-          votes="lalal"
-          description="A young Chinese maiden disguises herself as a male warrior in order to save her father. Disguises herself as a male warrior in order to save her father. A young Chinese maiden disguises herself as a male warrior in order to save her father."
-        />
-      }
-    ></Section>
-    <Section
-      title="Popular Movies"
+      title="Popular Person"
       content={
         <MainTile
           poster={poster}
-          name="Mulam"
-          productionInf="2022"
-          firstInformation="China"
-          secondInformation="05.09.1990"
-          genre="lalal"
-          rate="lalal"
-          votes="lalal"
-          description="A young Chinese maiden disguises herself as a male warrior in order to save her father. Disguises herself as a male warrior in order to save her father. A young Chinese maiden disguises herself as a male warrior in order to save her father."
+          name={personDetails.name}
+          firstInformation={personDetails.birthday}
+          secondInformation={personDetails.place_of_birth}
+          description={personDetails.biography}
         />
       }
     ></Section>
@@ -80,33 +60,17 @@ export const App = () => (
         <BasicTile
           movie
           key={movie.id}
-          poster={false}
-          name={movie.name}
-          productionInF={movie.year}
-          genre={movie.genre}
-          rate={movie.rate}
-          votes={movie.votes}
+          poster={poster}
+          name={movie.title}
+          productionInF={movie.release_date}
+          genres={movie.genre_ids}
+          rate={movie.vote_average}
+          votes={movie.vote_count}
         />
       ))}
     >
     </Section>
-    <Section
-      people
-      title="Popular People"
-      content={peopleList.map((movie) => (
-        <BasicTile
-          key={movie.id}
-          poster={false}
-          name={movie.name}
-          productionInF={movie.year}
-          genre={movie.genre}
-          rate={movie.rate}
-          votes={movie.votes}
-        />
-      ))}
-    >
-    </Section>
-  </Container>
+  </Container >
 );
 
 
