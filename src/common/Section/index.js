@@ -4,6 +4,7 @@ import {
   StyledHeading,
   StyledSection,
   StyledContent,
+  StyledTiles,
 } from "./styled";
 
 export const Section = ({ title, movies, people, content, foot }) => (
@@ -11,9 +12,13 @@ export const Section = ({ title, movies, people, content, foot }) => (
     <StyledHead>
       <StyledHeading>{title}</StyledHeading>
     </StyledHead>
-    <StyledContent movies={movies} people={people}>
-      {content}
-    </StyledContent>
+    {movies || people ? (
+      <StyledTiles movies={movies} people={people}>
+        {content}
+      </StyledTiles>
+    ) : (
+      <StyledContent>{content}</StyledContent>
+    )}
     <StyledFoot>{foot}</StyledFoot>
   </StyledSection>
 );

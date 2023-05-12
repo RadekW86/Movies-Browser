@@ -2,13 +2,7 @@ import styled, { css } from "styled-components";
 
 export const StyledSection = styled.section`
 margin: 0 auto;
-
-@media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
-  max-width: 672px;
-      }
-      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-  max-width: 288px;
-      }
+padding: 0 12px;
 
   ${({ fullpage }) =>
     fullpage &&
@@ -44,7 +38,12 @@ export const StyledFoot = styled.div`
   text-align: center;
 `;
 
-export const StyledContent = styled.ul`
+export const StyledContent = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const StyledTiles = styled.ul`
   list-style: none;
   margin: 0 auto;
   padding: 0;
@@ -64,7 +63,7 @@ export const StyledContent = styled.ul`
         grid-template-columns: 1fr;
         grid-gap: 16px;
       }
-    `}
+  `}
   ${({ people }) =>
     people &&
     css`
@@ -79,5 +78,5 @@ export const StyledContent = styled.ul`
         grid-template-columns: 1fr 1fr;
         grid-gap: 16px;
       }
-    `};
+  `};
 `;
