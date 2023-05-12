@@ -16,7 +16,7 @@ import {
     StyledPersonIcon,
 } from "./styled";
 
-export const BasicTile = ({ poster, name, productionInF, genre, rate, votes, movie }) => (
+export const BasicTile = ({ poster, name, productionInF, genres, rate, votes, movie }) => (
     <StyledBasicTile movie={movie}>
         {poster ? (
             <Poster alt="poster" src={poster} />
@@ -28,24 +28,24 @@ export const BasicTile = ({ poster, name, productionInF, genre, rate, votes, mov
         <ContainerInf>
             <DescriptionWrapper>
                 <NameTitle>{name}</NameTitle>
-                <ProductionInf>{productionInF}</ProductionInf>
+                <ProductionInf>{new Date(productionInF).getFullYear()}</ProductionInf>
                 {movie ? (
                     <MovieGenresWrapper>
-                        <MovieGenre>{genre}</MovieGenre>
+                        {genres.map((genre) => {
+                            return <MovieGenre>{genre}</MovieGenre>
+                        })}
                     </MovieGenresWrapper>
-                ) : (
-                    ""
-                )}
+                ) : ("")
+                }
             </DescriptionWrapper>
             {movie ? (
                 <MovieRating>
                     <StyledStarIcon />
                     <Rate>{rate}</Rate>
-                    <Votes>{votes}</Votes>
+                    <Votes>{`${votes} votes`}</Votes>
                 </MovieRating>
-            ) : (
-                ""
-            )}
+            ) : ("")
+            }
         </ContainerInf>
     </StyledBasicTile>
 );
