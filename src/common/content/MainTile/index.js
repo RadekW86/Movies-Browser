@@ -6,7 +6,7 @@ import {
     ContainerInf,
     DescriptionWrapper,
     NameTitle,
-    ProductionInf,
+    ProductionYear,
     MovieGenresWrapper,
     MovieGenre,
     MovieRating,
@@ -17,17 +17,19 @@ import {
     Description,
     NameInformation,
     Information,
-    InformationWrapper
+    InformationWrapper,
+    Span,
+    InformationFiled
 } from "./styled";
 
 export const MainTile = ({
     poster,
     name,
-    productionInf,
+    productionYear,
     description,
     firstInformation,
     secondInformation,
-    genre,
+    genres,
     rate,
     votes,
     movie
@@ -37,46 +39,56 @@ export const MainTile = ({
             <Poster alt="poster" src={poster} />
         ) : (
             <NoPoster alt="poster">
-                {movie
-                    ? <StyledVideoIcon />
-                    : <StyledPersonIcon />}
+                {movie ? (
+                    <StyledVideoIcon />
+                ) : (
+                    <StyledPersonIcon />
+                )}
             </NoPoster>
         )}
         <ContainerInf>
             <DescriptionWrapper>
                 <NameTitle>{name}</NameTitle>
-                <ProductionInf>{productionInf}</ProductionInf>
+                {movie ? (
+                    <ProductionYear>{new Date(productionYear).getFullYear()}</ProductionYear>
+                ) : ("")
+                }
                 <InformationWrapper>
-                    <NameInformation>
-                        {movie
-                            ? "Production"
-                            : "Date of birth:"}
-                    </NameInformation>
-                    <Information>{firstInformation}</Information>
-                    <NameInformation>
-                        {movie
-                            ? "Release date"
-                            : "Place of birth:"}
-                    </NameInformation>
-                    <Information>{secondInformation}</Information>
+                    <InformationFiled>
+                        <NameInformation movie={movie}>
+                            {movie ?
+                                "Production:"
+                                : (
+                                    <>
+                                        <Span>Date of </Span>Birth
+                                    </>
+                                )}
+                        </NameInformation>
+                        <Information>{firstInformation}</Information>
+                    </InformationFiled>
+                    <InformationFiled>
+                        <NameInformation movie={movie}>
+                            {movie ? "Release date:" : "Place of birth:"}
+                        </NameInformation>
+                        <Information>{secondInformation}</Information>
+                    </InformationFiled>
                 </InformationWrapper>
                 {movie ? (
                     <MovieGenresWrapper>
-                        <MovieGenre>{genre}</MovieGenre>
+                        {genres.map((genre) => {
+                            return <MovieGenre>{genre.name}</MovieGenre>
+                        })}
                     </MovieGenresWrapper>
-                ) : (
-                    ""
-                )}
+                ) : ("")
+                }
             </DescriptionWrapper>
             {movie ? (
                 <MovieRating>
                     <StyledStarIcon />
                     <Rate>{rate}</Rate>
-                    <Votes>{votes}</Votes>
+                    <Votes>{`${votes} votes`}</Votes>
                 </MovieRating>
-            ) : (
-                ""
-            )}
+            ) : ("")}
         </ContainerInf>
         <Description>
             {description}
