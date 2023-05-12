@@ -9,7 +9,7 @@ export const StyledBasicTile = styled.div`
   padding: 16px;
   display: grid;
   border-radius: 5px;
-  margin: 0;
+  margin: 0 auto;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.boxShadow.basic};
   display: grid;
@@ -34,8 +34,8 @@ export const Poster = styled.img`
   aspect-ratio: 2 / 3;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    max-width: 120px;
-    max-height: 178px;
+    width: 120px;
+    height: 178px;
   };
 
   ${({ movie }) => movie && css`
@@ -110,7 +110,7 @@ export const NameTitle = styled.h3`
   margin: 16px 0 0;
   font-weight: 500;
   font-size: 22px;
-  line-height: 130%;
+  line-height: ${({ theme }) => theme.lineHeight.s};
   color: ${({ theme }) => theme.colors.black};
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
@@ -129,7 +129,7 @@ export const ProductionInf = styled.p`
   margin: 0;
   font-weight: 400;
   font-size: 16px;
-  line-height: 150%;
+  line-height: ${({ theme }) => theme.lineHeight.m};
   color: ${({ theme }) => theme.colors.darkerGrey};
 `;
 
@@ -191,7 +191,7 @@ export const Rate = styled.p`
   padding: 0;
   font-weight: 600;
   font-size: 16px;
-  line-height: 150%;
+  line-height: ${({ theme }) => theme.lineHeight.m};
   color: ${({ theme }) => theme.colors.black};
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
@@ -203,7 +203,7 @@ export const Votes = styled.p`
   margin: 0;
   font-weight: 400;
   font-size: 16px;
-  line-height: 150%;
+  line-height: ${({ theme }) => theme.lineHeight.m};
   color: ${({ theme }) => theme.colors.darkerGrey};
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
