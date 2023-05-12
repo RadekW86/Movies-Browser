@@ -3,7 +3,7 @@ export const theme = {
         mercury: "#E5E5E5",
     },
     breakPoints: {
-        phoneMax: 500,
-        tabletMax: 900,
+        phoneMax: "750px",
+        tabletMax: "1450px",
     },
 };
