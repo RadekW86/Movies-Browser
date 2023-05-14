@@ -18,8 +18,12 @@ max-width: 1330px;
 margin: 0 auto;
 display: flex;
 flex-wrap: wrap;
-align-content: center;
-gap: 0;
+align-content: center; 
+justify-content: space-between;
+
+@media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
+        justify-content: center;
+}
 `;
 
 export const StyledTopSubContent = styled.div`
@@ -53,8 +57,7 @@ margin-right: 150px;
  
 export const StyledList = styled.ul`
 display: flex;
-flex-direction: row;
-
+flex-direction: row; 
 justify-content: flex-start;
 padding: 0;
 margin: 0;
@@ -72,6 +75,7 @@ height: 31px;
 font-weight: 450;
 color: ${({ theme }) => theme.colors.white}; 
 outline: none; 
+padding: 8px 24px 8px 24px;
 
 &:active {
     outline: 1px solid white;
