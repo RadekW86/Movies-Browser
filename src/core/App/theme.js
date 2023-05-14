@@ -4,7 +4,7 @@ export const theme = {
         blue: "#0044CC",
         mercury: "#E5E5E5",
         white: "#FFFFFF",
-        darkergray: "#7E839A",
+        darkerGray: "#7E839A",
     },
     breakPoints: {
         phoneMax: "750px",
