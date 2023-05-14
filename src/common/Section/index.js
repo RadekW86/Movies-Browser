@@ -12,13 +12,11 @@ export const Section = ({ title, movies, people, content, foot }) => (
     <StyledHead>
       <StyledHeading>{title}</StyledHeading>
     </StyledHead>
-    {movies || people ? (
+    <StyledContent>
       <StyledTiles movies={movies} people={people}>
         {content}
       </StyledTiles>
-    ) : (
-      <StyledContent>{content}</StyledContent>
-    )}
+    </StyledContent>
     <StyledFoot>{foot}</StyledFoot>
   </StyledSection>
 );
