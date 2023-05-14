@@ -2,8 +2,10 @@
 export const theme = {
   colors: {
         mercury: "#E5E5E5",
+        white: "#FFFFFF",
         black: "#181818",
         grey: "#E4E6F0",
+        blue: "#0044CC",
         darkerGray: "#7E839A",
         stormGrey: "#74788B",
         lightGray: "#F5F5FA",
