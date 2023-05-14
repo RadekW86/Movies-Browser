@@ -7,7 +7,6 @@ export const StyledBasicTile = styled.div`
   width: 100%;
   height: 100%;
   padding: 16px;
-  display: grid;
   border-radius: 5px;
   margin: 0 auto;
   background-color: ${({ theme }) => theme.colors.white};
