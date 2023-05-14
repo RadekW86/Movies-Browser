@@ -1,23 +1,27 @@
 import { Search } from "./Search/styled";
-import { Header, Item, Navigation, StyledList, StyledVideoImage, Title, TitleText } from "./styled"
+import { StyledTopBar, Item, Navigation, StyledList, StyledVideoImage, Title, TitleText, StyledTopContent, StyledTopSubContent } from "./styled"
 
 export default () => {
     return (
-        <Header>
-            <Title>
-                <StyledVideoImage></StyledVideoImage>
-                <TitleText>Movies Browser</TitleText>
-            </Title>
-            <Navigation>
-                <StyledList>
-                    <Item>MOVIES</Item>
-                    <Item>PEOPLE</Item>
-                </StyledList>
-            </Navigation>
-            <Search
-                type="text"
-                placeholder="Search for movies..."
-            />
-        </Header>
+        <StyledTopBar>
+            <StyledTopContent>
+                <StyledTopSubContent>
+                    <Title>
+                        <StyledVideoImage></StyledVideoImage>
+                        <TitleText>Movies Browser</TitleText>
+                    </Title>
+                    <Navigation>
+                        <StyledList>
+                            <Item>MOVIES</Item>
+                            <Item>PEOPLE</Item>
+                        </StyledList>
+                    </Navigation>
+                </StyledTopSubContent>
+                <Search
+                    type="text"
+                    placeholder="Search for movies..."
+                />
+            </StyledTopContent>
+        </StyledTopBar>
     )
 };
