@@ -1,3 +1,4 @@
+
 import { Container } from "../../common/Container/styled";
 import { Section } from "../../common/Section";
 import { Error } from "../../common/content/Error";
@@ -46,31 +47,7 @@ export const App = () => (
       title={"Search results for “Mulan”"}
       content={<Loading />}
     />
-    <Section
-      title={"Sorry, there are no results for “Muan”"}
-      content={<NoResults />}
-    />
-    <Section
-      content={<Error />}
-    />
-    <Section
-      movies
-      title="Popular Movies"
-      content={moviesList.map((movie) => (
-        <BasicTile
-          movie
-          key={movie.id}
-          poster={poster}
-          name={movie.title}
-          productionInF={movie.release_date}
-          genres={movie.genre_ids}
-          rate={movie.vote_average}
-          votes={movie.vote_count}
-        />
-      ))}
-    >
-    </Section>
-  </Container >
+
 );
 
 
