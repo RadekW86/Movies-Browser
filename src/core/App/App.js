@@ -1,6 +1,5 @@
-import { Container } from "../../common/Container/styled";
-import Navigation from "../../common/Navigation";
+import { TopBar } from "../../common/TopBar";
 
 export const App = () => (
- <Navigation /> 
+ <TopBar /> 
 );
