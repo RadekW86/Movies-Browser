@@ -6,7 +6,8 @@ export const theme = {
         white: "#FFFFFF",
         darkergray: "#7E839A",
     },
-    breakPoint: {
-        mobileMax: 767,
+    breakPoints: {
+        phoneMax: "750px",
+        tabletMax: "1450px",
     },
 };
