@@ -14,7 +14,8 @@ export const theme = {
         snuff: "#DDDDEE",
         yellow: "#FCD420",
     },
-    breakPoint: {
-        mobileMax: 767,
+    breakPoints: {
+        phoneMax: "750px",
+        tabletMax: "1450px",
     },
 };
