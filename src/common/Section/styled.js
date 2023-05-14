@@ -25,7 +25,7 @@ export const StyledHead = styled.div`
   }
 `;
 
-export const StyledHeading = styled.h1`
+export const StyledHeading = styled.h2`
   font-size: 36px;
   margin: 0px;
   font-weight: 600;
@@ -34,6 +34,7 @@ export const StyledHeading = styled.h1`
     font-size: 18px;
   }
 `;
+
 export const StyledFoot = styled.div`
   text-align: center;
 `;
