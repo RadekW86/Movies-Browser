@@ -1,3 +1,4 @@
+ 
 export const theme = {
   colors: {
         mercury: "#E5E5E5",
@@ -26,5 +27,5 @@ export const theme = {
     s: "130%",
     m: "150%",
     l: "160%"
-  }
+  } 
 };
