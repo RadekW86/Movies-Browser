@@ -4,12 +4,12 @@ import VectorLeftBlue from "../images/vectorPreviousBlue.svg";
 import VectorRight from "../images/vectorNext.svg";
 import VectorRightBlue from "../images/vectorNextBlue.svg";
 
-export const PaginationContainer = styled.footer`
+export const PaginationContainer = styled.div`
 display: flex;
 flex-direction: row;
 align-items: center;
 padding: 0px;
-gap: 24px; 
+gap: 12px; 
 position: absolute;
 width: 525px; 
 left: 698px;
@@ -35,8 +35,7 @@ export const PageButtonsFirst = styled.button`
   background-image: url(${VectorLeft});
   background-position: 16px center;
   background-repeat: no-repeat;
-  background-color: ${({ theme }) => theme.colors.gray};  
-  margin-right: -12px;
+  background-color: ${({ theme }) => theme.colors.gray}; 
 
   &:active {
     background-color: ${({ theme }) => theme.colors.lightblue};
@@ -72,7 +71,6 @@ export const PageButtonsLast = styled.button`
   background-position: right 16px center;
   background-repeat: no-repeat;
   background-color: ${({ theme }) => theme.colors.gray}; 
-  margin-right: -12px;
 
   &:active {
     background-color: ${({ theme }) => theme.colors.lightblue};
