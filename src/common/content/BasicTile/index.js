@@ -27,8 +27,14 @@ export const BasicTile = ({ poster, name, productionInF, genres, rate, votes, mo
         )}
         <ContainerInf>
             <DescriptionWrapper>
-                <NameTitle>{name}</NameTitle>
-                <ProductionInf>{new Date(productionInF).getFullYear()}</ProductionInf>
+                <NameTitle movie={movie}>
+                    {name}
+                </NameTitle>
+                <ProductionInf movie={movie}>
+                    {movie ? (
+                        new Date(productionInF).getFullYear()
+                    ) : (productionInF)}
+                </ProductionInf>
                 {movie ? (
                     <MovieGenresWrapper>
                         {genres.map((genre) => {
