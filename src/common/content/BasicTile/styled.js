@@ -111,13 +111,15 @@ export const NameTitle = styled.h3`
   font-size: 22px;
   line-height: ${({ theme }) => theme.lineHeight.s};
   color: ${({ theme }) => theme.colors.black};
+  text-align: center;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 16px;
     margin: 8px 0 0;
-  };
+  }
 
   ${({ movie }) => movie && css`
+  text-align: start;
     @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
       margin: 0;
     }`
@@ -130,6 +132,11 @@ export const ProductionInf = styled.p`
   font-size: 16px;
   line-height: ${({ theme }) => theme.lineHeight.m};
   color: ${({ theme }) => theme.colors.darkerGrey};
+  text-align: center;
+
+  ${({ movie }) => movie && css`
+  text-align: start;
+  `};
 `;
 
 export const MovieGenresWrapper = styled.div`
