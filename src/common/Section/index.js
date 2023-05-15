@@ -7,8 +7,8 @@ import {
   StyledTiles,
 } from "./styled";
 
-export const Section = ({ title, movies, people, content, foot }) => (
-  <StyledSection fullpage>
+export const Section = ({ title, movies, people, content, foot, fullpage }) => (
+  <StyledSection fullpage={fullpage}>
     <StyledHead>
       <StyledHeading>{title}</StyledHeading>
     </StyledHead>

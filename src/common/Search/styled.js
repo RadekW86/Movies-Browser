@@ -11,8 +11,18 @@ background-repeat: no-repeat;
 background-position: 27px center;
 padding-left: 63px; 
 align-self: center;
+font-size: 16px;
 
 &::placeholder {
-    color: ${({ theme }) => theme.colors.darkergray}
+    color: ${({ theme }) => theme.colors.darkergray};
 }
+
+@media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    width: 288px;
+    height: 44px;
+    padding-left: 40px; 
+    font-size: 13px;
+    background-position: 18px center;
+    background-size: 5%;
+  }
 `
