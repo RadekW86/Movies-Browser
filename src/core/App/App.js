@@ -11,9 +11,16 @@ import moviesList from "./exmapleMovies.json";
 import personDetails from "./examplePersonDetails.json";
 import movieDetails from "./exampleMovieDetails.json";
 import poster from "../../common/images/poster .png";
+import BigPoster from "./PosterBig.png"
+import { MovieBanner } from "../../features/movies/MoviePage/MovieBanner";
 export const App = () => (
   <>
-    <TopBar />
+    <MovieBanner
+    movieTitle="Mulan"
+    srcBackDrop={BigPoster}
+    rate="7.8"
+    votes="335"
+    />
     <Container>
       <Section
         title="Popular Movies"
