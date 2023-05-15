@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { ReactComponent as CameraImage } from "../images/video.svg";
 
 export const StyledTopBar = styled.div`
@@ -77,23 +78,26 @@ export const StyledList = styled.ul`
 `;
 
 export const Item = styled.li`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 14px;
   font-weight: 600;
-  color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
-  height: 21px;
-  padding: 0 10px;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 12px;
     height: 18px;
     padding: 0 5px;
   }
+`;
 
-  &:active {
+export const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.white};
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 21px;
+
+  &.active {
     outline: 1px solid white;
     outline-offset: 8.5px;
     border-radius: 33px;
