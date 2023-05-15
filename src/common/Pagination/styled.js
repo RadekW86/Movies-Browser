@@ -6,14 +6,16 @@ import VectorRightBlue from "../images/vectorNextBlue.svg";
 
 export const PaginationContainer = styled.div`
 display: flex;
-flex-direction: row;
+justify-content: center;
 align-items: center;
-padding: 0px;
+margin: 28px auto;
 gap: 12px;
 width: 525px; 
-left: 698px;
-top: 1581px;
 background-color: ${({ theme }) => theme.colors.lightgray}; 
+
+@media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+        margin: 42px auto;
+      }
 `;
 
 export const PageButtonsFirst = styled.button` 

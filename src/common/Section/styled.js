@@ -1,18 +1,18 @@
 import styled, { css } from "styled-components";
 
 export const StyledSection = styled.section`
-margin: 0 auto;
-padding: 0 12px;
+  margin: 0 auto;
+  padding: 0;
 
   ${({ fullpage }) =>
     fullpage &&
     css`
-      padding-top: 138px;
+      padding-top: 44px;
       padding-bottom: 75px;
 
-      @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
-        padding-top: 162px;
-        padding-bottom: 7px;
+      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+        padding-top: 22px;
+        padding-bottom: 8px;
       }
     `}
 `;
@@ -21,7 +21,7 @@ export const StyledHead = styled.div`
   margin: 12px;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    margin: 4px 0px;
+    margin: 4px 16px;
   }
 `;
 
@@ -47,8 +47,12 @@ export const StyledContent = styled.div`
 export const StyledTiles = styled.ul`
   list-style: none;
   margin: 0 auto;
-  padding: 0;
+  padding: 12px;
   display: grid;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    padding: 8px;
+  }
 
   ${({ movies }) =>
     movies &&
@@ -64,7 +68,7 @@ export const StyledTiles = styled.ul`
         grid-template-columns: 1fr;
         grid-gap: 16px;
       }
-  `}
+    `}
   ${({ people }) =>
     people &&
     css`
@@ -79,5 +83,5 @@ export const StyledTiles = styled.ul`
         grid-template-columns: 1fr 1fr;
         grid-gap: 16px;
       }
-  `};
+    `};
 `;

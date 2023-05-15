@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { PageButtonsFirst, PageButtonsLast, PageCount, PageText, Pages, PaginationContainer } from "./styled"
 
-const Pagination = () => {
+export const Pagination = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(10);
 
@@ -59,5 +59,3 @@ const Pagination = () => {
         </PaginationContainer>
     );
 };
-
-export default Pagination;
