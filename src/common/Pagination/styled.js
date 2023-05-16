@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import VectorLeft from "../images/vectorPrevious.svg";
-import VectorLeftBlue from "../images/vectorPreviousBlue.svg";
-import VectorRight from "../images/vectorNext.svg";
-import VectorRightBlue from "../images/vectorNextBlue.svg";
+import VectorLeft from "../../images/vectorPrevious.svg";
+import VectorLeftBlue from "../../images/vectorPreviousBlue.svg";
+import VectorRight from "../../images/vectorNext.svg";
+import VectorRightBlue from "../../images/vectorNextBlue.svg";
 
 export const PaginationContainer = styled.div`
 display: flex;

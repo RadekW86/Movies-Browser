@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
-import { ReactComponent as PersonIcon } from "../../images/profile.svg";
-import { ReactComponent as VideoIcon } from "../../images/video.svg";
-import { ReactComponent as StarIcon } from "../../images/star.svg";
+import { ReactComponent as PersonIcon } from "../../../images/profile.svg";
+import { ReactComponent as VideoIcon } from "../../../images/video.svg";
+import { ReactComponent as StarIcon } from "../../../images/star.svg";
 
 export const StyledBasicTile = styled.div`     
   width: 100%;

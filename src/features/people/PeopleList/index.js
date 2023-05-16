@@ -2,7 +2,7 @@ import { Container } from "../../../common/Container/styled";
 import { Section } from "../../../common/Section";
 import { BasicTile } from "../../../common/content/BasicTile";
 import moviesList from "../../../core/App/exmaplePeople.json";
-import face from "../../../common/images/face.png";
+import face from "../../../images/face.png";
 import { Pagination } from "../../../common/Pagination";
 
 export const PeopleList = () => (

@@ -2,7 +2,7 @@ import { Container } from "../../../common/Container/styled";
 import { Section } from "../../../common/Section";
 import { BasicTile } from "../../../common/content/BasicTile";
 import moviesList from "../../../core/App/exmapleMovies.json";
-import poster from "../../../common/images/poster.png";
+import poster from "../../../images/poster.png";
 import { Pagination } from "../../../common/Pagination";
 
 export const MoviesList = () => (
