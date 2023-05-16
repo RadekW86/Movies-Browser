@@ -1,7 +1,7 @@
 import { Section } from "../../../common/Section";
 import { BasicTile } from "../../../common/content/BasicTile";
 import { MainTile } from "../../../common/content/MainTile";
-import poster from "../../../common/images/poster .png";
+import poster from "../../../common/images/poster.png";
 import movieDetails from "../../../core/App/exampleMovieDetails.json";
 import peopleList from "../../../core/App/examplePeople.json";
 

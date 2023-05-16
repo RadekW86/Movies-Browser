@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {
   HashRouter,
   Switch,
@@ -12,12 +11,6 @@ import { PeopleList } from "../../features/people/PeopleList";
 import { MoviePage } from "../../features/movies/MoviePage";
 import { Profile } from "../../features/people/Profile";
 import { WorkSpace } from "../../WorkSpace";
-=======
-import { Container } from "../../common/Container/styled";
-import { TopBar } from "../../common/TopBar";
-import { MoviesList } from "../../features/movies/MoviesList";
-import { MoviePage } from "../../features/movies/MoviePage";
->>>>>>> movie/MoviesList
 
 export const App = () => (
   <HashRouter>
