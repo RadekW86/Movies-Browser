@@ -1,5 +1,5 @@
-import { toMovies, toPeople, toExtras } from "../../core/routes";
-import { Search } from "../Search/styled";
+import { toMovies, toPeople, toExtras } from "../core/routes";
+import { Search } from "./Search/styled";
 import {
   StyledTopBar,
   Item,

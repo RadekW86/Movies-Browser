@@ -5,7 +5,7 @@ import {
   Redirect,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { toMovies, toPeople, toMovie, toProfile, toExtras } from "../routes";
-import { TopBar } from "../../common/TopBar";
+import { TopBar } from "../../TopBar"
 import { MoviesList } from "../../features/movies/MoviesList";
 import { PeopleList } from "../../features/people/PeopleList";
 import { MoviePage } from "../../features/movies/MoviePage";
