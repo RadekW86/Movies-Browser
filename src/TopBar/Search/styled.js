@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SearchImage from "../images/search.svg";
+import SearchImage from "../../images/search.svg";
 
 export const Search = styled.input` 
 height: 48px;
