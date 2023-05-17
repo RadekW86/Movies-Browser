@@ -4,18 +4,22 @@ const movieSlice = createSlice({
     name: "movies",
     initialState: {
         movies: [],
+        page: 1,
     },
     reducers: {
         fetchMoviesLoading: () => ({
-            moviesState: "loading"
+            moviesState: "loading",
+            page: 1,
         }),
         fetchMoviesSuccess: (_, { payload: movies }) => ({
             moviesState: "success",
-            movies,
+            movies: movies.results,
+            page: movies.page,
         }),
         fetchMoviesError: () => ({
             moviesState: "error"
         }),
+
     },
 });
 
@@ -28,5 +32,6 @@ export const {
 export const selectMoviesSlice = (state) => state.movies;
 export const selectMovies = (state) => selectMoviesSlice(state).movies;
 export const selectMoviesState = (state) => selectMoviesSlice(state).moviesState;
+export const selectPage = (state) => selectMoviesSlice(state).page;
 
 export default movieSlice.reducer;
