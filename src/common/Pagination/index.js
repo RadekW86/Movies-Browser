@@ -1,38 +1,29 @@
-import { useState } from "react"
 import { PageButtonsFirst, PageButtonsLast, PageCount, PageText, Pages, PaginationContainer } from "./styled"
+import { useSetQueryParameter } from "../setQueryParameters";
 
-export const Pagination = () => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(10);
+export const Pagination = ({ currentPage, totalPages }) => {
+    const page = parseInt(currentPage);
+    const setQueryParameter = useSetQueryParameter();
 
-    const handleFirstPageClick = () => {
-        setCurrentPage(1);
-    };
-
-    const handlePreviousPageClick = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-        }
-    };
-
-    const handleNextPageClick = () => {
-        if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
-        }
-    };
-
-    const handleLastPageClick = () => {
-        setCurrentPage(totalPages);
+    const setPage = (targetValue) => {
+        setQueryParameter([
+            {
+                nameValue: "page",
+                value: targetValue,
+            },
+        ]);
     };
 
     return (
         <PaginationContainer>
             <PageButtonsFirst
-                onClick={handleFirstPageClick}>
+                onClick={() => setPage(1)}
+            >
                 First
             </PageButtonsFirst>
             <PageButtonsFirst
-                onClick={handlePreviousPageClick}>
+                onClick={() => setPage(page - 1)}
+            >
                 Previous
             </PageButtonsFirst>
             <Pages>
@@ -49,11 +40,13 @@ export const Pagination = () => {
                 </PageText>
             </Pages>
             <PageButtonsLast
-                onClick={handleNextPageClick}>
+                onClick={() => setPage(page + 1)}
+            >
                 Next
             </PageButtonsLast>
             <PageButtonsLast
-                onClick={handleLastPageClick}>
+                onClick={() => setPage(totalPages)}
+            >
                 Last
             </PageButtonsLast>
         </PaginationContainer>
