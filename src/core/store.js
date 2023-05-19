@@ -7,7 +7,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
     reducer: {
-        movies: moviesReducers,
+        moviesList: moviesReducers,
     },
     middleware: [sagaMiddleware],
 })
