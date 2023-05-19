@@ -18,11 +18,11 @@ export const MoviesList = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const pageOne = searchParams.get("page");
+  const pageNumber = searchParams.get("page");
 
   useEffect(() => {
-    dispatch(fetchMoviesLoading(pageOne))
-  }, [pageOne]);
+    dispatch(fetchMoviesLoading(pageNumber))
+  }, [pageNumber]);
 
   switch (moviesState) {
     case "loading":
