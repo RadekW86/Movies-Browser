@@ -6,12 +6,7 @@ export const Pagination = ({ currentPage, totalPages }) => {
     const setQueryParameter = useSetQueryParameter();
 
     const setPage = (targetValue) => {
-        setQueryParameter([
-            {
-                nameValue: "page",
-                value: targetValue,
-            },
-        ]);
+        setQueryParameter("page", targetValue);
     };
 
     return (

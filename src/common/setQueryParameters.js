@@ -4,13 +4,9 @@ export const useSetQueryParameter = () => {
   const location = useLocation();
   const history = useHistory();
 
-  const setQueryParameter = (values) => {
+  const setQueryParameter = (nameValue, value) => {
     const searchParams = new URLSearchParams(location.search);
-
-    for (const { nameValue, value } of values) {
-      searchParams.set(nameValue, value);
-    }
-
+    searchParams.set(nameValue, value);
     history.push(`${location.pathname}?${searchParams.toString()}`);
   };
 
