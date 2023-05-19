@@ -1,26 +1,32 @@
-import { PageButtonsFirst, PageButtonsLast, PageCount, PageText, Pages, PaginationContainer } from "./styled"
+import {
+    PageButton,
+    StyledSpan,
+    PageCount,
+    PageText,
+    Pages,
+    PaginationContainer
+} from "./styled"
 import { useSetQueryParameter } from "../setQueryParameters";
-
 export const Pagination = ({ currentPage, totalPages }) => {
     const page = parseInt(currentPage);
     const setQueryParameter = useSetQueryParameter();
-
     const setPage = (targetValue) => {
         setQueryParameter("page", targetValue);
     };
-
     return (
         <PaginationContainer>
-            <PageButtonsFirst
+            <PageButton
+                isFirst
                 onClick={() => setPage(1)}
             >
-                First
-            </PageButtonsFirst>
-            <PageButtonsFirst
+                <StyledSpan>First</StyledSpan>
+            </PageButton>
+            <PageButton
+                isPrevious
                 onClick={() => setPage(page === 1 ? page : page - 1)}
             >
-                Previous
-            </PageButtonsFirst>
+                <StyledSpan>Previous</StyledSpan>
+            </PageButton>
             <Pages>
                 <PageText>
                     Page{' '}
@@ -28,22 +34,24 @@ export const Pagination = ({ currentPage, totalPages }) => {
                         {currentPage}
                     </PageCount>
                 </PageText>
-                <PageText> of{' '}
+                <PageText>of{' '}
                     <PageCount id="totalPages">
                         {totalPages}
                     </PageCount>
                 </PageText>
             </Pages>
-            <PageButtonsLast
+            <PageButton
+                isNext
                 onClick={() => setPage(page === 500 ? page : page + 1)}
             >
-                Next
-            </PageButtonsLast>
-            <PageButtonsLast
+                <StyledSpan>Next</StyledSpan>
+            </PageButton>
+            <PageButton
+                isLast
                 onClick={() => setPage(totalPages)}
             >
-                Last
-            </PageButtonsLast>
+                <StyledSpan>Last</StyledSpan>
+            </PageButton>
         </PaginationContainer>
     );
 };
