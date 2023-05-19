@@ -22,7 +22,7 @@ export const MoviesList = () => {
 
   useEffect(() => {
     dispatch(fetchMoviesLoading(pageOne))
-  }, [dispatch, pageOne]);
+  }, [pageOne]);
 
   switch (moviesState) {
     case "loading":
