@@ -17,7 +17,7 @@ export const Pagination = ({ currentPage, totalPages }) => {
                 First
             </PageButtonsFirst>
             <PageButtonsFirst
-                onClick={() => setPage(page - 1)}
+                onClick={() => setPage(page === 1 ? page : page - 1)}
             >
                 Previous
             </PageButtonsFirst>
@@ -35,7 +35,7 @@ export const Pagination = ({ currentPage, totalPages }) => {
                 </PageText>
             </Pages>
             <PageButtonsLast
-                onClick={() => setPage(page + 1)}
+                onClick={() => setPage(page === 500 ? page : page + 1)}
             >
                 Next
             </PageButtonsLast>
