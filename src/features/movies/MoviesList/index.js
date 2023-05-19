@@ -7,7 +7,7 @@ import { Error } from "../../../common/content/Error";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { fetchMoviesLoading } from "../moviesSlice"
+import { fetchMoviesLoading } from "../moviesSlice";
 import { Pagination } from "../../../common/Pagination";
 import { Container } from "../../../common/Container/styled";
 
@@ -21,24 +21,14 @@ export const MoviesList = () => {
   const pageNumber = searchParams.get("page");
 
   useEffect(() => {
-    dispatch(fetchMoviesLoading(pageNumber))
+    dispatch(fetchMoviesLoading(pageNumber));
   }, [pageNumber]);
 
   switch (moviesState) {
     case "loading":
-      return (
-        <Section
-          fullpage
-          content={<Loading />}
-        />
-      )
+      return <Section fullpage content={<Loading />} />;
     case "error":
-      return (
-        <Section
-          fullpage
-          content={<Error />}
-        />
-      )
+      return <Section fullpage content={<Error />} />;
     case "success":
       return (
         <Container>
@@ -46,12 +36,7 @@ export const MoviesList = () => {
             fullpage
             movies
             title="Popular Movies"
-            foot={
-              <Pagination
-                currentPage={page}
-                totalPages="500"
-              />
-            }
+            foot={<Pagination currentPage={page} totalPages="500" />}
             content={moviesList.map((movie) => (
               <BasicTile
                 movie
@@ -66,9 +51,6 @@ export const MoviesList = () => {
             ))}
           />
         </Container>
-      )
+      );
   }
 };
-
-
-
