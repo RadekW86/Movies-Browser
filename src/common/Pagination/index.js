@@ -1,40 +1,32 @@
-import { useState } from "react"
-import { PageButtonsFirst, PageButtonsLast, PageCount, PageText, Pages, PaginationContainer } from "./styled"
-
-export const Pagination = () => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(10);
-
-    const handleFirstPageClick = () => {
-        setCurrentPage(1);
+import {
+    PageButton,
+    StyledSpan,
+    PageCount,
+    PageText,
+    Pages,
+    PaginationContainer
+} from "./styled"
+import { useSetQueryParameter } from "../setQueryParameters";
+export const Pagination = ({ currentPage, totalPages }) => {
+    const page = parseInt(currentPage);
+    const setQueryParameter = useSetQueryParameter();
+    const setPage = (targetValue) => {
+        setQueryParameter("page", targetValue);
     };
-
-    const handlePreviousPageClick = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-        }
-    };
-
-    const handleNextPageClick = () => {
-        if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
-        }
-    };
-
-    const handleLastPageClick = () => {
-        setCurrentPage(totalPages);
-    };
-
     return (
         <PaginationContainer>
-            <PageButtonsFirst
-                onClick={handleFirstPageClick}>
-                First
-            </PageButtonsFirst>
-            <PageButtonsFirst
-                onClick={handlePreviousPageClick}>
-                Previous
-            </PageButtonsFirst>
+            <PageButton
+                isFirst
+                onClick={() => setPage(1)}
+            >
+                <StyledSpan>First</StyledSpan>
+            </PageButton>
+            <PageButton
+                isPrevious
+                onClick={() => setPage(page === 1 ? page : page - 1)}
+            >
+                <StyledSpan>Previous</StyledSpan>
+            </PageButton>
             <Pages>
                 <PageText>
                     Page{' '}
@@ -42,20 +34,24 @@ export const Pagination = () => {
                         {currentPage}
                     </PageCount>
                 </PageText>
-                <PageText> of{' '}
+                <PageText>of{' '}
                     <PageCount id="totalPages">
                         {totalPages}
                     </PageCount>
                 </PageText>
             </Pages>
-            <PageButtonsLast
-                onClick={handleNextPageClick}>
-                Next
-            </PageButtonsLast>
-            <PageButtonsLast
-                onClick={handleLastPageClick}>
-                Last
-            </PageButtonsLast>
+            <PageButton
+                isNext
+                onClick={() => setPage(page === 500 ? page : page + 1)}
+            >
+                <StyledSpan>Next</StyledSpan>
+            </PageButton>
+            <PageButton
+                isLast
+                onClick={() => setPage(totalPages)}
+            >
+                <StyledSpan>Last</StyledSpan>
+            </PageButton>
         </PaginationContainer>
     );
 };

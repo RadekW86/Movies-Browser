@@ -27,7 +27,7 @@ export const BasicTile = ({
 }) => (
   <StyledBasicTile movie={movie}>
     {poster ? (
-      <Poster alt="poster" src={poster} />
+      <Poster alt="poster" src={`https://image.tmdb.org/t/p/w500/${poster}`} />
     ) : (
       <NoPoster alt="poster">
         {movie ? <StyledVideoIcon /> : <StyledPersonIcon />}
@@ -35,11 +35,12 @@ export const BasicTile = ({
     )}
     <ContainerInf>
       <DescriptionWrapper>
-        <NameTitle>{name}</NameTitle>
-
+        <NameTitle movie={movie}>
+          {name}
+        </NameTitle>
         {movie ? (
           <>
-            <ProductionInf>
+            <ProductionInf movie={movie}>
               {new Date(productionInF).getFullYear()}
             </ProductionInf>
             <MovieGenresWrapper>

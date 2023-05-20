@@ -57,7 +57,7 @@ export const StyledTiles = styled.ul`
   ${({ movies }) =>
     movies &&
     css`
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       grid-gap: 24px;
 
       @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
@@ -72,7 +72,7 @@ export const StyledTiles = styled.ul`
   ${({ people }) =>
     people &&
     css`
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(6, 1fr);
       grid-gap: 24px;
 
       @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {

@@ -35,6 +35,7 @@ export const Poster = styled.img`
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     width: 120px;
     height: 178px;
+    margin: 0 auto;
   };
 
   ${({ movie }) => movie && css`
@@ -59,6 +60,7 @@ export const NoPoster = styled.div`
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     max-width: 114px;
     max-height: 169px;
+    margin: 0 auto;
   };
 `;
 
