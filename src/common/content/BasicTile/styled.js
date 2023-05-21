@@ -13,6 +13,7 @@ export const StyledBasicTile = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow.basic};
   display: grid;
   grid-template-rows: auto 1fr;
+  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
       padding: 8px;
