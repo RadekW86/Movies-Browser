@@ -9,7 +9,7 @@ export const theme = {
     blue: "#0044CC",
     darkerGray: "#7E839A",
     stormGrey: "#74788B",
-    lightGray: "#F5F5FA",
+    lightGrey: "#F5F5FA",
     lightBlue: "#D6E4FF",
     mineshaft: "#333333",
     lynch: "#627489",
