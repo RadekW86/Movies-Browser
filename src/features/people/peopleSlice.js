@@ -28,8 +28,7 @@ export const { fetchPeopleLoading, fetchPeopleSuccess, fetchPeopleError } =
 
 export const selectPeopleSlice = (state) => state.peopleList;
 export const selectPeople = (state) => selectPeopleSlice(state).people;
-export const selectPeopleState = (state) =>
-  selectPeopleSlice(state).peopleState;
 export const selectPage = (state) => selectPeopleSlice(state).page;
+export const selectPeopleState = (state) => selectPeopleSlice(state).peopleState;
 
 export default peopleSlice.reducer;
