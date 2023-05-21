@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { ReactComponent as PersonIcon } from "../../../images/profile.svg";
 import { ReactComponent as VideoIcon } from "../../../images/video.svg";
 import { ReactComponent as StarIcon } from "../../../images/star.svg";
+import { Link } from "react-router-dom/cjs/react-router-dom.min.js";
 
 export const StyledBasicTile = styled.div`     
   width: 100%;
@@ -212,4 +213,17 @@ export const Votes = styled.p`
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 13px;
   };
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  
+  &:visited {
+  }
+  &:hover {
+    filter: brightness(110%);
+  }
+  &:focus {
+    filter: brightness(120%);
+  }
 `;

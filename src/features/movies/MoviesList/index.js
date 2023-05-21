@@ -47,6 +47,7 @@ export const MoviesList = () => {
                 genres={movie.genre_ids}
                 rate={movie.vote_average}
                 votes={movie.vote_count}
+                id={movie.id}
               />
             ))}
           />
