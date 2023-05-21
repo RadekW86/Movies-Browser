@@ -52,7 +52,6 @@ export const NoPoster = styled.div`
   border-radius: 5px;
   aspect-ratio: 2 / 3;
   display: flex;
-  margin-bottom: 16px;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.silver};
@@ -71,9 +70,6 @@ export const StyledVideoIcon = styled(VideoIcon)`
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     height: 37px;
   };
-  @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
-    height: 37px;
-  };
 `;
 
 export const StyledPersonIcon = styled(PersonIcon)`
@@ -81,9 +77,6 @@ export const StyledPersonIcon = styled(PersonIcon)`
   height: 96px;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    height: 45px;
-  };
-  @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     height: 45px;
   };
 `;
