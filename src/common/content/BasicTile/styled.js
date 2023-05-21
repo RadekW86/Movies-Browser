@@ -31,6 +31,7 @@ export const Poster = styled.img`
   width: 100%;
   border-radius: 5px;
   aspect-ratio: 2 / 3;
+  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     width: 120px;
@@ -55,6 +56,7 @@ export const NoPoster = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.silver};
+  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     max-width: 114px;
@@ -107,6 +109,7 @@ export const NameTitle = styled.h3`
   line-height: ${({ theme }) => theme.lineHeight.s};
   color: ${({ theme }) => theme.colors.black};
   text-align: center;
+  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 16px;
