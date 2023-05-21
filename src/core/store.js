@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import moviesReducers from "../features/movies/moviesSlice";
+import moviesReducers from "../features/movies/MoviesList/moviesSlice";
 import peopleReducers from "../features/people/peopleSlice";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./rootSaga";

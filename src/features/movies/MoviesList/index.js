@@ -2,12 +2,12 @@ import { Section } from "../../../common/Section";
 import { BasicTile } from "../../../common/content/BasicTile";
 import { Loading } from "../../../common/content/Loading";
 import { useSelector } from "react-redux";
-import { selectMovies, selectMoviesState, selectPage } from "../moviesSlice";
+import { selectMovies, selectMoviesState, selectPage } from "../MoviesList/moviesSlice";
 import { Error } from "../../../common/content/Error";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { fetchMoviesLoading } from "../moviesSlice";
+import { fetchMoviesLoading } from "../MoviesList/moviesSlice";
 import { Pagination } from "../../../common/Pagination";
 import { Container } from "../../../common/Container/styled";
 

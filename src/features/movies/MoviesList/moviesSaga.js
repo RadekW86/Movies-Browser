@@ -1,10 +1,10 @@
-import { delay, put, call, takeLatest } from "redux-saga/effects";
+import { put, call, takeLatest } from "redux-saga/effects";
 import {
   fetchMoviesError,
   fetchMoviesLoading,
   fetchMoviesSuccess,
 } from "./moviesSlice";
-import { getMoviesList } from "./getMoviesList";
+import { getMoviesList } from "../getMovies";
 
 function* watchFetchMoviesHandler({ payload: page }) {
   try {
