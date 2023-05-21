@@ -13,3 +13,11 @@ export const useSetQueryParameter = () => {
   return setQueryParameter;
 };
 
+
+export const useGetQueryParameter = (nameParameter) => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const parameter = searchParams.get(nameParameter);
+
+  return parameter
+}
