@@ -12,11 +12,11 @@ import {
   selectProfileState,
   selectProfileDetails,
   selectProfileDetailsState,
-} from "../profileSlice";
+} from "./profileSlice";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect } from "react";
-import { fetchProfileLoading } from "../profileSlice";
+import { fetchProfileLoading } from "./profileSlice";
 
 export const Profile = () => {
   const dispatch = useDispatch();

@@ -5,11 +5,11 @@ import { Pagination } from "../../../common/Pagination";
 import { Loading } from "../../../common/content/Loading";
 import { Error } from "../../../common/content/Error";
 import { useSelector } from "react-redux";
-import { selectPeople, selectPeopleState, selectPage } from "../peopleSlice";
+import { selectPeople, selectPeopleState, selectPage } from "./peopleSlice";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { fetchPeopleLoading } from "../peopleSlice";
+import { fetchPeopleLoading } from "./peopleSlice";
 
 export const PeopleList = () => {
   const peopleState = useSelector(selectPeopleState);
