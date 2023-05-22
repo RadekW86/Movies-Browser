@@ -3,8 +3,11 @@ import {
   fetchProfileError,
   fetchProfileLoading,
   fetchProfileSuccess,
+  fetchProfileDetailsError,
+  fetchProfileDetailsLoading,
+  fetchProfileDetailsSuccess,
 } from "./profileSlice";
-import { getProfile } from "./getProfile";
+import { getProfile, getProfileDetails } from "./getProfile";
 
 function* watchFetchProfileHandler({ payload: id }) {
   try {
@@ -15,6 +18,16 @@ function* watchFetchProfileHandler({ payload: id }) {
   }
 }
 
+function* watchFetchProfileDetailsHandler({ payload: id }) {
+  try {
+    const profileDetails = yield call(getProfileDetails, id);
+    yield put(fetchProfileDetailsSuccess(profileDetails));
+  } catch (error) {
+    yield put(fetchProfileDetailsError());
+  }
+}
+
 export function* watchFetchProfile() {
   yield takeLatest(fetchProfileLoading.type, watchFetchProfileHandler);
+  yield takeLatest(fetchProfileDetailsLoading.type, watchFetchProfileDetailsHandler);
 }

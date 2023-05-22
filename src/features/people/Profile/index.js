@@ -4,7 +4,7 @@ import { MainTile } from "../../../common/content/MainTile";
 import { Loading } from "../../../common/content/Loading";
 import { Error } from "../../../common/content/Error";
 import { useSelector } from "react-redux";
-import { selectProfile, selectProfileState } from "../profileSlice";
+import { fetchProfileDetailsLoading, selectProfile, selectProfileState } from "../profileSlice";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect } from "react";
@@ -18,6 +18,10 @@ export const Profile = () => {
 
   useEffect(() => {
     dispatch(fetchProfileLoading(id.id));
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchProfileDetailsLoading(id.id));
   }, []);
 
   switch (profileState) {
