@@ -3,7 +3,7 @@ import { ReactComponent as PersonIcon } from "../../../images/profile.svg";
 import { ReactComponent as VideoIcon } from "../../../images/video.svg";
 import { ReactComponent as StarIcon } from "../../../images/star.svg";
 
-export const StyledBasicTile = styled.div`     
+export const StyledBasicTile = styled.div`
   width: 100%;
   height: 100%;
   padding: 16px;
@@ -13,18 +13,19 @@ export const StyledBasicTile = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow.basic};
   display: grid;
   grid-template-rows: auto 1fr;
-  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-      padding: 8px;
-  };
+    padding: 8px;
+  }
 
-  ${({ movie }) => movie && css`
-    @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-      grid-template-columns: auto 1fr;
-      gap: 0 16px;
-    }`
-  };
+  ${({ movie }) =>
+    movie &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+        grid-template-columns: auto 1fr;
+        gap: 0 16px;
+      }
+    `};
 `;
 
 export const Poster = styled.img`
@@ -37,19 +38,21 @@ export const Poster = styled.img`
     width: 120px;
     height: 178px;
     margin: 0 auto;
-  };
+  }
 
-  ${({ movie }) => movie && css`
-  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    max-width: 114px;
-    max-height: 169px;
-  }`
-  };
+  ${({ movie }) =>
+    movie &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+        max-width: 114px;
+        max-height: 169px;
+      }
+    `};
 `;
 
 export const NoPoster = styled.div`
   width: 100%;
-  height: 100%;
+  height: 264px;
   border-radius: 5px;
   aspect-ratio: 2 / 3;
   display: flex;
@@ -62,7 +65,7 @@ export const NoPoster = styled.div`
     max-width: 114px;
     max-height: 169px;
     margin: 0 auto;
-  };
+  }
 `;
 
 export const StyledVideoIcon = styled(VideoIcon)`
@@ -71,10 +74,10 @@ export const StyledVideoIcon = styled(VideoIcon)`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     height: 37px;
-  };
+  }
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     height: 37px;
-  };
+  }
 `;
 
 export const StyledPersonIcon = styled(PersonIcon)`
@@ -83,10 +86,10 @@ export const StyledPersonIcon = styled(PersonIcon)`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     height: 45px;
-  };
+  }
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     height: 45px;
-  };
+  }
 `;
 
 export const ContainerInf = styled.div`
@@ -105,7 +108,7 @@ export const DescriptionWrapper = styled.div`
     margin-bottom: 12px;
     grid-gap: 4px;
     margin: 0;
-  };
+  }
 `;
 
 export const NameTitle = styled.h3`
@@ -121,12 +124,14 @@ export const NameTitle = styled.h3`
     margin: 8px 0 0;
   }
 
-  ${({ movie }) => movie && css`
-  text-align: start;
-    @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-      margin: 0;
-    }`
-  };
+  ${({ movie }) =>
+    movie &&
+    css`
+      text-align: start;
+      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+        margin: 0;
+      }
+    `};
 `;
 
 export const ProductionInf = styled.p`
@@ -137,9 +142,11 @@ export const ProductionInf = styled.p`
   color: ${({ theme }) => theme.colors.darkerGrey};
   text-align: center;
 
-  ${({ movie }) => movie && css`
-  text-align: start;
-  `};
+  ${({ movie }) =>
+    movie &&
+    css`
+      text-align: start;
+    `};
 `;
 
 export const MovieGenresWrapper = styled.div`
@@ -154,7 +161,7 @@ export const MovieGenresWrapper = styled.div`
     flex-wrap: wrap;
     gap: 8px;
     margin: 0 16px 0 0;
-  };
+  }
 `;
 
 export const MovieGenre = styled.div`
@@ -172,7 +179,7 @@ export const MovieGenre = styled.div`
     padding: 4px 8px;
     height: 24px;
     font-size: 10px;
-  };
+  }
 `;
 
 export const MovieRating = styled.div`
@@ -183,7 +190,7 @@ export const MovieRating = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     gap: 8px;
-  };
+  }
 `;
 
 export const StyledStarIcon = styled(StarIcon)`
@@ -191,7 +198,7 @@ export const StyledStarIcon = styled(StarIcon)`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     width: 16px;
-  };
+  }
 `;
 
 export const Rate = styled.p`
@@ -204,7 +211,7 @@ export const Rate = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 13px;
-  };
+  }
 `;
 
 export const Votes = styled.p`
@@ -216,5 +223,5 @@ export const Votes = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 13px;
-  };
+  }
 `;
