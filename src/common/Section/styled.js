@@ -2,7 +2,13 @@ import styled, { css } from "styled-components";
 
 export const StyledSection = styled.section`
   margin: 0 auto;
-  padding: 0;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
 
   ${({ fullpage }) =>
     fullpage &&
