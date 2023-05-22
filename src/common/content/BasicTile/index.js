@@ -35,9 +35,7 @@ export const BasicTile = ({
     )}
     <ContainerInf>
       <DescriptionWrapper>
-        <NameTitle movie={movie}>
-          {name}
-        </NameTitle>
+        <NameTitle movie={movie}>{name}</NameTitle>
         {movie ? (
           <>
             <ProductionInf movie={movie}>
@@ -50,7 +48,7 @@ export const BasicTile = ({
             </MovieGenresWrapper>
           </>
         ) : (
-          ""
+          <ProductionInf>{productionInF}</ProductionInf>
         )}
       </DescriptionWrapper>
       {movie ? (
