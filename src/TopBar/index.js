@@ -1,4 +1,4 @@
-import { toMovies, toPeople, toExtras } from "../core/routes";
+import { toMovies, toPeople } from "../core/routes";
 import { Search } from "./Search/styled";
 import {
   StyledTopBar,
