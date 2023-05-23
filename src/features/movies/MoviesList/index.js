@@ -14,7 +14,6 @@ import { fetchMoviesLoading } from "../MoviesList/moviesSlice";
 import { Pagination } from "../../../common/Pagination";
 import { Container } from "../../../common/Container/styled";
 import { useGetQueryParameter } from "../../../common/setQueryParameters";
-import { StyledLink } from "../MoviesList/styled";
 
 export const MoviesList = () => {
   const moviesState = useSelector(selectMoviesState);
