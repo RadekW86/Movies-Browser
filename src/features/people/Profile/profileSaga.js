@@ -5,12 +5,12 @@ import {
   fetchProfileError,
   fetchProfileCreditsSuccess,
 } from "./profileSlice";
-import { getProfile, getProfileCredits } from "./getProfile";
+import { useGetAPI } from "../../../common/getAPI";
 
 function* watchFetchProfileHandler({ payload: profile_id }) {
   try {
-    const profile = yield call(getProfile, profile_id);
-    const profileCredits = yield call(getProfileCredits, profile_id);
+    const profile = yield call(useGetAPI, "profile", profile_id);
+    const profileCredits = yield call(useGetAPI, "profileCredits", profile_id);
     yield put(fetchProfileSuccess(profile));
     yield put(fetchProfileCreditsSuccess(profileCredits));
   } catch (error) {

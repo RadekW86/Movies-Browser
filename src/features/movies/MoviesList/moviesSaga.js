@@ -4,11 +4,11 @@ import {
   fetchMoviesLoading,
   fetchMoviesSuccess,
 } from "./moviesSlice";
-import { getMoviesList } from "../getMovies";
+import { useGetAPI } from "../../../common/getAPI";
 
 function* watchFetchMoviesHandler({ payload: page }) {
   try {
-    const movies = yield call(getMoviesList, page);
+    const movies = yield call(useGetAPI, "moviesList", page);
     yield put(fetchMoviesSuccess(movies));
   } catch (error) {
     yield put(fetchMoviesError());
