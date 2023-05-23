@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { ReactComponent as PersonIcon } from "../../../images/profile.svg";
 import { ReactComponent as VideoIcon } from "../../../images/video.svg";
 import { ReactComponent as StarIcon } from "../../../images/star.svg";
+import { Link } from "react-router-dom/cjs/react-router-dom.min.js";
 
 export const StyledBasicTile = styled.div`
   width: 100%;
@@ -33,6 +34,7 @@ export const Poster = styled.img`
   width: 100%;
   border-radius: 5px;
   aspect-ratio: 2 / 3;
+  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     width: 120px;
@@ -56,10 +58,10 @@ export const NoPoster = styled.div`
   border-radius: 5px;
   aspect-ratio: 2 / 3;
   display: flex;
-  margin-bottom: 16px;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.silver};
+  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     max-width: 114px;
@@ -74,10 +76,10 @@ export const StyledVideoIcon = styled(VideoIcon)`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     height: 37px;
-  }
+  };
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     height: 37px;
-  }
+  };
 `;
 
 export const StyledPersonIcon = styled(PersonIcon)`
@@ -86,10 +88,10 @@ export const StyledPersonIcon = styled(PersonIcon)`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     height: 45px;
-  }
+  };
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     height: 45px;
-  }
+  };
 `;
 
 export const ContainerInf = styled.div`
@@ -118,6 +120,7 @@ export const NameTitle = styled.h3`
   line-height: ${({ theme }) => theme.lineHeight.s};
   color: ${({ theme }) => theme.colors.black};
   text-align: center;
+  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 16px;
@@ -223,5 +226,18 @@ export const Votes = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 13px;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  
+  &:visited {
+  }
+  &:hover {
+    filter: brightness(110%);
+  }
+  &:focus {
+    filter: brightness(120%);
   }
 `;

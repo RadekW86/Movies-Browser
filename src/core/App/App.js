@@ -29,7 +29,7 @@ export const App = () => (
       <Route path={toProfile()}>
         <Profile />
       </Route>
-      <Route path={toExtras}>
+      <Route path={toExtras()}>
         <WorkSpace />
       </Route>
       <Route>

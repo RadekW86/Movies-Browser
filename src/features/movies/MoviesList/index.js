@@ -41,20 +41,17 @@ export const MoviesList = () => {
             title="Popular Movies"
             foot={<Pagination currentPage={page} totalPages="500" />}
             content={moviesList.map((movie) => (
-              <StyledLink
-                to={`/Movies/${movie.id}`}
-              >
-                <BasicTile
-                  movie
-                  key={movie.id}
-                  poster={movie.poster_path}
-                  name={movie.title}
-                  productionInF={movie.release_date}
-                  genres={movie.genre_ids}
-                  rate={movie.vote_average}
-                  votes={movie.vote_count}
-                />
-              </StyledLink>
+              <BasicTile
+                movie
+                key={movie.id}
+                poster={movie.poster_path}
+                name={movie.title}
+                productionInF={movie.release_date}
+                genres={movie.genre_ids}
+                rate={movie.vote_average}
+                votes={movie.vote_count}
+                id={movie.id}
+              />
             ))}
           />
         </Container>
