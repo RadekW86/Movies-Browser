@@ -1,25 +1,26 @@
 const KEY_API = "445d0cbde8fc680f93bc54bd75a8924d";
+const BASE_PATH = "https://api.themoviedb.org/3";
 let URL_API;
 
 export const useGetAPI = async (referenceType, param1) => {
   switch (referenceType) {
     case "moviesList":
-      URL_API = `https://api.themoviedb.org/3/movie/popular?api_key=${KEY_API}&language=en-US&page=${param1}`;
+      URL_API = `${BASE_PATH}/movie/popular?api_key=${KEY_API}&language=en-US&page=${param1}`;
       break;
     case "movie":
-      URL_API = `https://api.themoviedb.org/3/movie/${param1}?api_key=${KEY_API}&language=en-US`;
+      URL_API = `${BASE_PATH}/movie/${param1}?api_key=${KEY_API}&language=en-US`;
       break;
     case "movieCredits":
-      URL_API = `https://api.themoviedb.org/3/movie/${param1}/credits?api_key=${KEY_API}&language=en-US`;
+      URL_API = `${BASE_PATH}/movie/${param1}/credits?api_key=${KEY_API}&language=en-US`;
       break;
     case "peopleList":
-      URL_API = `https://api.themoviedb.org/3/person/popular?api_key=${KEY_API}&language=en-US&page=${param1}`;
+      URL_API = `${BASE_PATH}/person/popular?api_key=${KEY_API}&language=en-US&page=${param1}`;
       break;
     case "profile":
-      URL_API = `https://api.themoviedb.org/3/person/${param1}?api_key=${KEY_API}&language=en-US&`;
+      URL_API = `${BASE_PATH}/person/${param1}?api_key=${KEY_API}&language=en-US&`;
       break;
     case "profileCredits":
-      URL_API = `https://api.themoviedb.org/3/person/${param1}/combined_credits?api_key=${KEY_API}&language=en-US&`;
+      URL_API = `${BASE_PATH}/person/${param1}/combined_credits?api_key=${KEY_API}&language=en-US&`;
       break;
   }
 
