@@ -30,9 +30,6 @@ export const TopBar = () => {
               <Item>
                 <StyledNavLink to={toPeople}>PEOPLE</StyledNavLink>
               </Item>
-              <Item>
-                <StyledNavLink to={toExtras}>+++</StyledNavLink>
-              </Item>
             </StyledList>
           </Navigation>
         </StyledTopSubContent>
