@@ -5,33 +5,24 @@ const profileSlice = createSlice({
 
   initialState: {
     profile: {},
-    details: {},
+    profileCredits: {},
   },
 
   reducers: {
     fetchProfileLoading: () => ({
       profileState: "loading",
     }),
-    fetchProfileSuccess: (state, { payload: profile }) => ({
-      ...state,
+    fetchProfileSuccess: (_, { payload: profile }) => ({
       profileState: "success",
-      profile: profile,
-      id: profile.id,
+      profile,
     }),
     fetchProfileError: () => ({
       profileState: "error",
     }),
-    fetchProfileDetailsLoading: () => ({
-      profileDetailsState: "loading",
-    }),
-    fetchProfileDetailsSuccess: (state, { payload: details }) => ({
+    fetchProfileCreditsSuccess: (state, { payload: profileCredits }) => ({
       ...state,
-      profileDetailsState: "success",
-      details: details,
-      id: details.id,
-    }),
-    fetchProfileDetailsError: () => ({
-      profileDetailsState: "error",
+      profileCreditsState: "success",
+      profileCredits,
     }),
   },
 });
@@ -40,16 +31,14 @@ export const {
   fetchProfileLoading,
   fetchProfileSuccess,
   fetchProfileError,
-  fetchProfileDetailsLoading,
-  fetchProfileDetailsSuccess,
-  fetchProfileDetailsError,
+  fetchProfileCreditsSuccess,
 } = profileSlice.actions;
 
 export const selectProfileSlice = (state) => state.profilePage;
 export const selectProfile = (state) => selectProfileSlice(state).profile;
 export const selectProfileState = (state) => selectProfileSlice(state).profileState;
 
-export const selectProfileDetails = (state) => selectProfileSlice(state).details;
-export const selectProfileDetailsState = (state) => selectProfileSlice(state).profileDetailsState;
+export const selectProfileCredits = (state) => selectProfileSlice(state).profileCredits;
+export const selectProfileCreditsState = (state) => selectProfileSlice(state).profileCreditsState;
 
 export default profileSlice.reducer;

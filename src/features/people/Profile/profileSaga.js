@@ -1,33 +1,23 @@
 import { put, call, takeLatest } from "redux-saga/effects";
 import {
-  fetchProfileError,
   fetchProfileLoading,
   fetchProfileSuccess,
-  fetchProfileDetailsError,
-  fetchProfileDetailsLoading,
-  fetchProfileDetailsSuccess,
+  fetchProfileError,
+  fetchProfileCreditsSuccess,
 } from "./profileSlice";
-import { getProfile, getProfileDetails } from "./getProfile";
+import { getProfile, getProfileCredits } from "./getProfile";
 
-function* watchFetchProfileHandler({ payload: id }) {
+function* watchFetchProfileHandler({ payload: profile_id }) {
   try {
-    const profile = yield call(getProfile, id);
+    const profile = yield call(getProfile, profile_id);
+    const profileCredits = yield call(getProfileCredits, profile_id);
     yield put(fetchProfileSuccess(profile));
+    yield put(fetchProfileCreditsSuccess(profileCredits));
   } catch (error) {
     yield put(fetchProfileError());
   }
 }
 
-function* watchFetchProfileDetailsHandler({ payload: id }) {
-  try {
-    const profileDetails = yield call(getProfileDetails, id);
-    yield put(fetchProfileDetailsSuccess(profileDetails));
-  } catch (error) {
-    yield put(fetchProfileDetailsError());
-  }
-}
-
 export function* watchFetchProfile() {
   yield takeLatest(fetchProfileLoading.type, watchFetchProfileHandler);
-  yield takeLatest(fetchProfileDetailsLoading.type, watchFetchProfileDetailsHandler);
 }

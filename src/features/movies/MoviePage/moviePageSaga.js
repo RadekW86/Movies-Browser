@@ -1,9 +1,9 @@
 import { put, call, takeLatest } from "redux-saga/effects";
 import {
-  fetchMovieCreditsSuccess,
-  fetchMoviePageError,
   fetchMoviePageLoading,
   fetchMoviePageSuccess,
+  fetchMoviePageError,
+  fetchMovieCreditsSuccess,
 } from "./moviePageSlice";
 import { getMovie, getMovieCredits } from "../getMovies";
 

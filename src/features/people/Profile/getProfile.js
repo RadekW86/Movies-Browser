@@ -11,7 +11,7 @@ export const getProfile = async (id) => {
   return await response.json();
 };
 
-export const getProfileDetails = async (id) => {
+export const getProfileCredits = async (id) => {
   const KEY_API = "445d0cbde8fc680f93bc54bd75a8924d";
   const URL_API = `https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${KEY_API}&language=en-US&`;
 
