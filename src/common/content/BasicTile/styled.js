@@ -76,10 +76,10 @@ export const StyledVideoIcon = styled(VideoIcon)`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     height: 37px;
-  };
+  }
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     height: 37px;
-  };
+  }
 `;
 
 export const StyledPersonIcon = styled(PersonIcon)`
@@ -88,10 +88,10 @@ export const StyledPersonIcon = styled(PersonIcon)`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     height: 45px;
-  };
+  }
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     height: 45px;
-  };
+  }
 `;
 
 export const ContainerInf = styled.div`
@@ -231,13 +231,13 @@ export const Votes = styled.p`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  
+
   &:visited {
   }
   &:hover {
     filter: brightness(110%);
   }
   &:focus {
-    filter: brightness(120%);
+    filter: brightness(110%);
   }
 `;

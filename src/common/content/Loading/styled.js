@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {ReactComponent as loadingCircleImage} from "../../../images/loadingCircle.svg";
+import { ReactComponent as loadingCircleImage } from "../../../images/loadingCircle.svg";
 
 export const StyledloadingCircleImage = styled(loadingCircleImage)`
   max-width: 91px;

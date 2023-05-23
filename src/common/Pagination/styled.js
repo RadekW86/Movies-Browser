@@ -4,7 +4,7 @@ import VectorLeftBlue from "../../images/vectorPreviousBlue.svg";
 import VectorRight from "../../images/vectorNext.svg";
 import VectorRightBlue from "../../images/vectorNextBlue.svg";
 
-export const PaginationContainer = styled.div` 
+export const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

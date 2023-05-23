@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {ReactComponent as exclamationImage}  from "../../../images/exclamation.svg";
+import { ReactComponent as exclamationImage } from "../../../images/exclamation.svg";
 import { Link } from "react-router-dom/cjs/react-router-dom.min.js";
 
 export const StyledDiv = styled.div`
@@ -60,7 +60,7 @@ export const StyledReturnButton = styled.button`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  
+
   &:visited {
   }
   &:hover {
