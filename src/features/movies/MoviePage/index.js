@@ -55,7 +55,6 @@ export const MoviePage = () => {
             />
             <Container>
               <Section
-                fullpage
                 content={
                   <MainTile
                     movie

@@ -47,7 +47,6 @@ export const Profile = () => {
         return (
           <Container>
             <Section
-              fullpage
               content={
                 <MainTile
                   name={profile.name}
