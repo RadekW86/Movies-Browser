@@ -1,19 +1,15 @@
-import { Section } from "../../../common/Section";
-import { BasicTile } from "../../../common/content/BasicTile";
-import { Loading } from "../../../common/content/Loading";
-import { useSelector } from "react-redux";
-import {
-  selectMovies,
-  selectMoviesState,
-  selectPage,
-} from "../MoviesList/moviesSlice";
-import { Error } from "../../../common/content/Error";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchMoviesLoading } from "../MoviesList/moviesSlice";
-import { Pagination } from "../../../common/Pagination";
 import { Container } from "../../../common/Container/styled";
+import { Section } from "../../../common/Section";
+import { Loading } from "../../../common/content/Loading";
+import { Error } from "../../../common/content/Error";
+import { BasicTile } from "../../../common/content/BasicTile";
+import { Pagination } from "../../../common/Pagination";
+import { useSelector } from "react-redux";
+import { selectMovies, selectMoviesState, selectPage } from "./moviesSlice";
+import { useDispatch } from "react-redux";
 import { useGetQueryParameter } from "../../../common/setQueryParameters";
+import { useEffect } from "react";
+import { fetchMoviesLoading } from "./moviesSlice";
 
 export const MoviesList = () => {
   const moviesState = useSelector(selectMoviesState);
@@ -28,9 +24,17 @@ export const MoviesList = () => {
 
   switch (moviesState) {
     case "loading":
-      return <Section fullpage content={<Loading />} />;
+      return (
+        <Container>
+          <Section fullpage content={<Loading />} />
+        </Container>
+      );
     case "error":
-      return <Section fullpage content={<Error />} />;
+      return (
+        <Container>
+          <Section fullpage content={<Error />} />
+        </Container>
+      );
     case "success":
       return (
         <Container>
@@ -38,7 +42,6 @@ export const MoviesList = () => {
             fullpage
             movies
             title="Popular Movies"
-            foot={<Pagination currentPage={page} totalPages="500" />}
             content={moviesList.map((movie) => (
               <BasicTile
                 movie
@@ -52,6 +55,7 @@ export const MoviesList = () => {
                 id={movie.id}
               />
             ))}
+            foot={<Pagination currentPage={page} totalPages="500" />}
           />
         </Container>
       );

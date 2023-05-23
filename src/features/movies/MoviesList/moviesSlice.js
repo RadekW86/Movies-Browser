@@ -2,10 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const moviesSlice = createSlice({
   name: "moviesList",
+
   initialState: {
     movies: [],
     page: 1,
   },
+
   reducers: {
     fetchMoviesLoading: () => ({
       moviesState: "loading",
@@ -26,8 +28,7 @@ export const { fetchMoviesLoading, fetchMoviesSuccess, fetchMoviesError } =
 
 export const selectMoviesSlice = (state) => state.moviesList;
 export const selectMovies = (state) => selectMoviesSlice(state).movies;
-export const selectMoviesState = (state) =>
-  selectMoviesSlice(state).moviesState;
 export const selectPage = (state) => selectMoviesSlice(state).page;
+export const selectMoviesState = (state) => selectMoviesSlice(state).moviesState;
 
 export default moviesSlice.reducer;
