@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import moviesReducers from "../features/movies/moviesSlice";
+import moviesReducers from "../features/movies/MoviesList/moviesSlice";
+import moviePageReducers from "../features/movies/MoviePage/moviePageSlice";
 import peopleReducers from "../features/people/PeopleList/peopleSlice";
 import profileReducers from "../features/people/Profile/profileSlice";
 import createSagaMiddleware from "redux-saga";
@@ -10,6 +11,7 @@ const sagaMiddleware = createSagaMiddleware();
 export const store = configureStore({
   reducer: {
     moviesList: moviesReducers,
+    moviePage: moviePageReducers,
     peopleList: peopleReducers,
     profilePage: profileReducers,
   },

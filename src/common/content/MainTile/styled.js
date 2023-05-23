@@ -20,12 +20,12 @@ export const StyledMainTile = styled.div`
     grid-template-columns: auto 1fr;
     grid-gap: 25px;
     padding: 25px;
-  };
+  }
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     grid-gap: 16px;
     padding: 16px;
-  };
+  }
 `;
 
 export const Poster = styled.img`
@@ -123,7 +123,7 @@ export const ProductionYear = styled.p`
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 13px;
     margin: 0;
-    color: ${({ theme }) => theme.colors.darkerGrey}
+    color: ${({ theme }) => theme.colors.darkerGrey};
   }
 `;
 
@@ -196,7 +196,7 @@ export const Rate = styled.p`
 export const Votes = styled.p`
   margin: 0;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 17px;
   line-height: ${({ theme }) => theme.lineHeight.m};
   color: ${({ theme }) => theme.colors.darkerGrey};
 
@@ -231,9 +231,8 @@ export const InformationWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 16px;
 
-@media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     margin: 8px 0;
   }
 `;
@@ -242,7 +241,6 @@ export const InformationFiled = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 8px;
- 
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 14px;
@@ -260,11 +258,13 @@ export const NameInformation = styled.div`
     font-size: 12px;
   }
 
-  ${({ movie }) => movie && css`
-  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    display: none;
-  }
-  `}
+  ${({ movie }) =>
+    movie &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+        display: none;
+      }
+    `}
 `;
 
 export const Information = styled.p`
@@ -278,7 +278,7 @@ export const Information = styled.p`
 `;
 
 export const Span = styled.span`
- @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     display: none;
   }
 `;

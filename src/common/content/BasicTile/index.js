@@ -58,7 +58,7 @@ export const BasicTile = ({
             </MovieGenresWrapper>
           </>
         ) : (
-          ""
+          <ProductionInf>{productionInF}</ProductionInf>
         )}
       </DescriptionWrapper>
       {movie ? (

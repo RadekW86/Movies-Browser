@@ -2,23 +2,26 @@ import { Section } from "../../../common/Section";
 import { BasicTile } from "../../../common/content/BasicTile";
 import { Loading } from "../../../common/content/Loading";
 import { useSelector } from "react-redux";
-import { selectMovies, selectMoviesState, selectPage } from "../moviesSlice";
+import {
+  selectMovies,
+  selectMoviesState,
+  selectPage,
+} from "../MoviesList/moviesSlice";
 import { Error } from "../../../common/content/Error";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { fetchMoviesLoading } from "../moviesSlice";
+import { fetchMoviesLoading } from "../MoviesList/moviesSlice";
 import { Pagination } from "../../../common/Pagination";
 import { Container } from "../../../common/Container/styled";
+import { useGetQueryParameter } from "../../../common/setQueryParameters";
+import { StyledLink } from "../MoviesList/styled";
 
 export const MoviesList = () => {
   const moviesState = useSelector(selectMoviesState);
   const moviesList = useSelector(selectMovies);
   const page = useSelector(selectPage);
   const dispatch = useDispatch();
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const pageNumber = searchParams.get("page");
+  const pageNumber = useGetQueryParameter("page");
 
   useEffect(() => {
     dispatch(fetchMoviesLoading(pageNumber));

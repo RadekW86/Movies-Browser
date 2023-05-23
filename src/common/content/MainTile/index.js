@@ -36,7 +36,7 @@ export const MainTile = ({
 }) => (
   <StyledMainTile movie={movie}>
     {poster ? (
-      <Poster alt="poster" src={poster} />
+      <Poster alt="poster" src={`https://image.tmdb.org/t/p/w500/${poster}`} />
     ) : (
       <NoPoster alt="poster">
         {movie ? <StyledVideoIcon /> : <StyledPersonIcon />}
@@ -85,7 +85,7 @@ export const MainTile = ({
       {movie ? (
         <MovieRating>
           <StyledStarIcon />
-          <Rate>{rate}</Rate>
+          <Rate>{`${rate}/10`}</Rate>
           <Votes>{`${votes} votes`}</Votes>
         </MovieRating>
       ) : (
