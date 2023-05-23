@@ -2,7 +2,13 @@ import styled, { css } from "styled-components";
 
 export const StyledSection = styled.section`
   margin: 0 auto;
-  padding: 0;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
 
   ${({ fullpage }) =>
     fullpage &&
@@ -61,7 +67,7 @@ export const StyledTiles = styled.ul`
       grid-gap: 24px;
 
       @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         justify-items: center;
       }
       @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
@@ -72,15 +78,15 @@ export const StyledTiles = styled.ul`
   ${({ people }) =>
     people &&
     css`
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       grid-gap: 24px;
 
       @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
         justify-items: center;
       }
       @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: 16px;
       }
     `};

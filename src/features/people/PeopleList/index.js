@@ -1,15 +1,15 @@
+import { Container } from "../../../common/Container/styled";
 import { Section } from "../../../common/Section";
 import { BasicTile } from "../../../common/content/BasicTile";
+import { Pagination } from "../../../common/Pagination";
 import { Loading } from "../../../common/content/Loading";
-import { useSelector } from "react-redux";
-import { selectPeople, selectPeopleState, selectPage } from "../peopleSlice";
 import { Error } from "../../../common/content/Error";
+import { useSelector } from "react-redux";
+import { selectPeople, selectPeopleState, selectPage } from "./peopleSlice";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { fetchPeopleLoading } from "../peopleSlice";
-import { Pagination } from "../../../common/Pagination";
-import { Container } from "../../../common/Container/styled";
+import { fetchPeopleLoading } from "./peopleSlice";
 
 export const PeopleList = () => {
   const peopleState = useSelector(selectPeopleState);
@@ -36,15 +36,15 @@ export const PeopleList = () => {
             fullpage
             people
             title="Popular People"
-            foot={<Pagination currentPage={page} totalPages="500" />}
             content={peopleList.map((people) => (
               <BasicTile
-                people
                 key={people.id}
                 poster={people.profile_path}
                 name={people.name}
+                id={people.id}
               />
             ))}
+            foot={<Pagination currentPage={page} totalPages="500" />}
           />
         </Container>
       );

@@ -14,7 +14,9 @@ import {
   Votes,
   StyledStarIcon,
   StyledPersonIcon,
+  StyledLink,
 } from "./styled";
+import { toMovie, toProfile } from "../../../core/routes";
 
 export const BasicTile = ({
   poster,
@@ -24,20 +26,26 @@ export const BasicTile = ({
   rate,
   votes,
   movie,
+  id,
 }) => (
   <StyledBasicTile movie={movie}>
-    {poster ? (
-      <Poster alt="poster" src={`https://image.tmdb.org/t/p/w500/${poster}`} />
-    ) : (
-      <NoPoster alt="poster">
-        {movie ? <StyledVideoIcon /> : <StyledPersonIcon />}
-      </NoPoster>
-    )}
+    <StyledLink to={movie ? toMovie({ id: id }) : toProfile({ id: id })}>
+      {poster ? (
+        <Poster
+          alt="poster"
+          src={`https://image.tmdb.org/t/p/w500/${poster}`}
+        />
+      ) : (
+        <NoPoster alt="poster">
+          {movie ? <StyledVideoIcon /> : <StyledPersonIcon />}
+        </NoPoster>
+      )}
+    </StyledLink>
     <ContainerInf>
       <DescriptionWrapper>
-        <NameTitle movie={movie}>
-          {name}
-        </NameTitle>
+        <StyledLink to={movie ? toMovie({ id: id }) : toProfile({ id: id })}>
+          <NameTitle movie={movie}>{name}</NameTitle>
+        </StyledLink>
         {movie ? (
           <>
             <ProductionInf movie={movie}>
