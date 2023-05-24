@@ -47,7 +47,7 @@ export const MoviesList = () => {
                 movie
                 key={movie.id}
                 poster={movie.poster_path}
-                name={movie.title}
+                name={movie.title || movie.original_name}
                 productionInF={movie.release_date}
                 genres={movie.genre_ids}
                 rate={movie.vote_average}

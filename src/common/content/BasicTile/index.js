@@ -51,7 +51,7 @@ export const BasicTile = ({
         {movie ? (
           <>
             <ProductionInf movie={movie}>
-              {new Date(productionInF).getFullYear()}
+              {productionInF ? (new Date(productionInF).getFullYear()) : ""}
             </ProductionInf>
             <MovieGenresWrapper>
               {genres.map((genre) => {

@@ -58,7 +58,7 @@ export const MoviePage = () => {
                 content={
                   <MainTile
                     movie
-                    name={moviePage.original_title}
+                    name={moviePage.title || moviePage.original_name}
                     poster={moviePage.poster_path}
                     productionYear={moviePage.release_date}
                     description={moviePage.overview}

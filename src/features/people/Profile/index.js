@@ -65,7 +65,7 @@ export const Profile = () => {
                   <BasicTile
                     movie
                     key={nanoid()}
-                    name={movie.title}
+                    name={movie.title || movie.original_name}
                     poster={movie.poster_path}
                     productionInF={movie.release_date}
                     genres={movie.genre_ids}

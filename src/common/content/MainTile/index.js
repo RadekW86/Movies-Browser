@@ -47,7 +47,7 @@ export const MainTile = ({
         <NameTitle>{name}</NameTitle>
         {movie ? (
           <ProductionYear>
-            {new Date(productionYear).getFullYear()}
+            {productionYear ? new Date(productionYear).getFullYear() : ""}
           </ProductionYear>
         ) : (
           ""
