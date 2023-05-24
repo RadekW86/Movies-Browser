@@ -23,6 +23,7 @@ export const StyledMainTile = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    grid-template-columns: auto 1fr;
     grid-gap: 16px;
     padding: 16px;
   }

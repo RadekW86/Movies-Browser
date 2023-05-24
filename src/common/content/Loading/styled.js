@@ -5,6 +5,7 @@ export const StyledloadingCircleImage = styled(loadingCircleImage)`
   max-width: 91px;
   max-height: 91px;
   margin: 108px 0px;
+  justify-self: center;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     max-width: 35px;

@@ -46,13 +46,13 @@ export const StyledFoot = styled.div`
 `;
 
 export const StyledContent = styled.div`
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
 `;
 
 export const StyledTiles = styled.ul`
   list-style: none;
-  margin: 0 auto;
+  margin: 0;
   padding: 12px;
   display: grid;
 
