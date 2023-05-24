@@ -1,3 +1,4 @@
+import { nanoid } from "@reduxjs/toolkit";
 import {
   StyledMainTile,
   Poster,
@@ -75,7 +76,7 @@ export const MainTile = ({
         {movie ? (
           <MovieGenresWrapper>
             {genres.map((genre) => {
-              return <MovieGenre>{genre.name}</MovieGenre>;
+              <MovieGenre key={nanoid()}>{genre.name}</MovieGenre>;
             })}
           </MovieGenresWrapper>
         ) : (
