@@ -66,13 +66,33 @@ export const MainTile = ({
                 </>
               )}
             </NameInformation>
-            <Information>{firstInformation}</Information>
+            {movie ? (
+              ""
+            ) : (
+              <Information>
+                {new Date(firstInformation).toLocaleString("pl-PL", {
+                  day: "numeric",
+                  month: "numeric",
+                  year: "numeric",
+                })}
+              </Information>
+            )}
           </InformationFiled>
           <InformationFiled>
             <NameInformation movie={movie}>
               {movie ? "Release date:" : "Place of birth:"}
             </NameInformation>
-            <Information>{secondInformation}</Information>
+            {movie ? (
+              <Information>
+                {new Date(secondInformation).toLocaleString("pl-PL", {
+                  day: "numeric",
+                  month: "numeric",
+                  year: "numeric",
+                })}
+              </Information>
+            ) : (
+              secondInformation
+            )}
           </InformationFiled>
         </InformationWrapper>
         {movie ? (
