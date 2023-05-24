@@ -85,7 +85,7 @@ export const MainTile = ({
       {movie ? (
         <MovieRating>
           <StyledStarIcon />
-          <Rate>{`${rate}/10`}</Rate>
+          <Rate>{`${rate.toFixed(2)}/10`}</Rate>
           <Votes>{`${votes} votes`}</Votes>
         </MovieRating>
       ) : (

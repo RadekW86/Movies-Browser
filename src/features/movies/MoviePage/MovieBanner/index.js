@@ -21,7 +21,7 @@ export const MovieBanner = ({ movieTitle, rate, votes, srcBackDrop }) =>
           <MovieRating>
             <RateWrapper>
               <StyledStarIcon />
-              <Rate>{rate}</Rate>
+              <Rate>{rate.toFixed(2)}</Rate>
               <MaxRate> / 10</MaxRate>
             </RateWrapper>
             <Votes>{`${votes} votes`}</Votes>
