@@ -37,24 +37,20 @@ export const Poster = styled.img`
   cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    width: 120px;
-    height: 178px;
-    margin: 0 auto;
+    ${({ movie }) =>
+      movie &&
+      css`
+        @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+          width: 114px;
+          height: 169px;
+        }
+      `};
   }
-
-  ${({ movie }) =>
-    movie &&
-    css`
-      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-        max-width: 114px;
-        max-height: 169px;
-      }
-    `};
 `;
 
 export const NoPoster = styled.div`
+  height: 100%;
   width: 100%;
-  height: 264px;
   border-radius: 5px;
   aspect-ratio: 2 / 3;
   display: flex;
@@ -64,9 +60,14 @@ export const NoPoster = styled.div`
   cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    max-width: 114px;
-    max-height: 169px;
-    margin: 0 auto;
+    ${({ movie }) =>
+      movie &&
+      css`
+        @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+          width: 114px;
+          height: 169px;
+        }
+      `};
   }
 `;
 
