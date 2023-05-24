@@ -60,7 +60,7 @@ export const Profile = () => {
             {profileCredits.cast.length > 0 && (
               <Section
                 movies
-                title={"Movies - cast"}
+                title={`Movies - cast (${profileCredits.cast.length})`}
                 content={profileCredits.cast.map((movie) => (
                   <BasicTile
                     movie
@@ -79,7 +79,7 @@ export const Profile = () => {
             {profileCredits.crew.length > 0 && (
               <Section
                 movies
-                title={"Movies - crew"}
+                title={`Movies - crew (${profileCredits.crew.length})`}
                 content={profileCredits.crew.map((movie) => (
                   <BasicTile
                     movie
