@@ -82,9 +82,11 @@ export const ContainerInf = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 40px 0;
+  gap: 32px;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     padding: 0;
+    gap: 16px;
   }
 `;
 
@@ -96,7 +98,7 @@ export const DescriptionWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     margin-bottom: 12px;
-    grid-gap: 4px;
+    grid-gap: 8px;
     margin: 0;
   }
 `;
@@ -236,7 +238,7 @@ export const InformationWrapper = styled.div`
   gap: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    margin: 8px 0;
+    margin: 0;
   }
 `;
 
