@@ -57,40 +57,44 @@ export const Profile = () => {
                 />
               }
             />
-            <Section
-              movies
-              title={"Movies - cast"}
-              content={profileCredits.cast.map((movie) => (
-                <BasicTile
-                  movie
-                  key={nanoid()}
-                  name={movie.title}
-                  poster={movie.poster_path}
-                  productionInF={movie.release_date}
-                  genres={movie.genre_ids}
-                  rate={movie.vote_average}
-                  votes={movie.vote_count}
-                  id={movie.id}
-                />
-              ))}
-            />
-            <Section
-              movies
-              title={"Movies - crew"}
-              content={profileCredits.crew.map((movie) => (
-                <BasicTile
-                  movie
-                  key={nanoid()}
-                  name={movie.title}
-                  poster={movie.poster_path}
-                  productionInF={movie.release_date}
-                  genres={movie.genre_ids}
-                  rate={movie.vote_average}
-                  votes={movie.vote_count}
-                  id={movie.id}
-                />
-              ))}
-            />
+            {profileCredits.cast.length > 0 && (
+              <Section
+                movies
+                title={"Movies - cast"}
+                content={profileCredits.cast.map((movie) => (
+                  <BasicTile
+                    movie
+                    key={nanoid()}
+                    name={movie.title}
+                    poster={movie.poster_path}
+                    productionInF={movie.release_date}
+                    genres={movie.genre_ids}
+                    rate={movie.vote_average}
+                    votes={movie.vote_count}
+                    id={movie.id}
+                  />
+                ))}
+              />
+            )}
+            {profileCredits.crew.length > 0 && (
+              <Section
+                movies
+                title={"Movies - crew"}
+                content={profileCredits.crew.map((movie) => (
+                  <BasicTile
+                    movie
+                    key={nanoid()}
+                    name={movie.title}
+                    poster={movie.poster_path}
+                    productionInF={movie.release_date}
+                    genres={movie.genre_ids}
+                    rate={movie.vote_average}
+                    votes={movie.vote_count}
+                    id={movie.id}
+                  />
+                ))}
+              />
+            )}
           </Container>
         );
       }

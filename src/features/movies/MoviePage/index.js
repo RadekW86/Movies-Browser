@@ -69,32 +69,36 @@ export const MoviePage = () => {
                   />
                 }
               />
-              <Section
-                people
-                title="Cast"
-                content={movieCredits.cast.map((actor) => (
-                  <BasicTile
-                    key={nanoid()}
-                    name={actor.name}
-                    poster={actor.profile_path}
-                    productionInF={actor.character}
-                    id={actor.id}
-                  ></BasicTile>
-                ))}
-              />
-              <Section
-                people
-                title="Crew"
-                content={movieCredits.crew.map((actor) => (
-                  <BasicTile
-                    key={nanoid()}
-                    name={actor.name}
-                    poster={actor.profile_path}
-                    productionInF={actor.job}
-                    id={actor.id}
-                  ></BasicTile>
-                ))}
-              />
+              {movieCredits.cast.length > 0 && (
+                <Section
+                  people
+                  title="Cast"
+                  content={movieCredits.cast.map((actor) => (
+                    <BasicTile
+                      key={nanoid()}
+                      name={actor.name}
+                      poster={actor.profile_path}
+                      productionInF={actor.character}
+                      id={actor.id}
+                    ></BasicTile>
+                  ))}
+                />
+              )}
+              {movieCredits.crew.length > 0 && (
+                <Section
+                  people
+                  title="Crew"
+                  content={movieCredits.crew.map((actor) => (
+                    <BasicTile
+                      key={nanoid()}
+                      name={actor.name}
+                      poster={actor.profile_path}
+                      productionInF={actor.job}
+                      id={actor.id}
+                    ></BasicTile>
+                  ))}
+                />
+              )}
             </Container>
           </>
         );
