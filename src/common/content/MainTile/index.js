@@ -22,6 +22,7 @@ import {
   InformationWrapper,
   Span,
   InformationFiled,
+  MaxRate,
 } from "./styled";
 
 export const MainTile = ({
@@ -87,7 +88,10 @@ export const MainTile = ({
       {movie ? (
         <MovieRating>
           <StyledStarIcon />
-          <Rate>{`${rate.toFixed(2)}/10`}</Rate>
+          <Rate>
+            {`${rate.toFixed(2)} / `}
+            <MaxRate>10</MaxRate>
+          </Rate>
           <Votes>{`${votes} votes`}</Votes>
         </MovieRating>
       ) : (

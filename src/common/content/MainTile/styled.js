@@ -164,7 +164,7 @@ export const MovieGenre = styled.li`
 
 export const MovieRating = styled.div`
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 14px;
   margin: 0;
 
@@ -186,7 +186,6 @@ export const Rate = styled.p`
   padding: 0;
   font-weight: 600;
   font-size: 22px;
-  line-height: ${({ theme }) => theme.lineHeight.m};
   color: ${({ theme }) => theme.colors.black};
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
@@ -194,16 +193,19 @@ export const Rate = styled.p`
   }
 `;
 
-export const Votes = styled.p`
+export const MaxRate = styled.span`
   margin: 0;
   font-weight: 400;
-  font-size: 17px;
+  font-size: 14px;
   line-height: ${({ theme }) => theme.lineHeight.m};
   color: ${({ theme }) => theme.colors.darkerGrey};
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 13px;
   }
+`;
+
+export const Votes = styled(MaxRate)`
 `;
 
 export const Description = styled.p`
