@@ -1,4 +1,5 @@
 import { nanoid } from "@reduxjs/toolkit";
+import { IMAGE_PATH } from "../../getAPI";
 import {
   StyledMainTile,
   Poster,
@@ -37,7 +38,7 @@ export const MainTile = ({
 }) => (
   <StyledMainTile movie={movie}>
     {poster ? (
-      <Poster alt="poster" src={`https://image.tmdb.org/t/p/w500/${poster}`} />
+      <Poster alt="poster" src={`${IMAGE_PATH}${poster}`} />
     ) : (
       <NoPoster alt="poster">
         {movie ? <StyledVideoIcon /> : <StyledPersonIcon />}

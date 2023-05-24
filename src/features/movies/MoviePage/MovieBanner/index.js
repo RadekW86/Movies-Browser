@@ -1,3 +1,4 @@
+import { IMAGE_PATH } from "../../../../common/getAPI";
 import {
   Backdrop,
   BackdropWrapper,
@@ -27,7 +28,7 @@ export const MovieBanner = ({ movieTitle, rate, votes, srcBackDrop }) =>
             <Votes>{`${votes} votes`}</Votes>
           </MovieRating>
         </Vineta>
-        <Backdrop src={`https://image.tmdb.org/t/p/w500/${srcBackDrop}`} />
+        <Backdrop src={`${IMAGE_PATH}${srcBackDrop}`} />
       </BackdropWrapper>
     </StyledMovieBanner>
   );

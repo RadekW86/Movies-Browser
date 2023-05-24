@@ -1,3 +1,6 @@
+import { nanoid } from "@reduxjs/toolkit";
+import { toMovie, toProfile } from "../../../core/routes";
+import { IMAGE_PATH } from "../../getAPI";
 import {
   StyledBasicTile,
   Poster,
@@ -16,8 +19,6 @@ import {
   StyledPersonIcon,
   StyledLink,
 } from "./styled";
-import { toMovie, toProfile } from "../../../core/routes";
-import { nanoid } from "@reduxjs/toolkit";
 
 export const BasicTile = ({
   poster,
@@ -35,7 +36,7 @@ export const BasicTile = ({
         <Poster
           movie={movie}
           alt="poster"
-          src={`https://image.tmdb.org/t/p/w500/${poster}`}
+          src={`${IMAGE_PATH}${poster}`}
         />
       ) : (
         <NoPoster movie={movie} alt="poster">
