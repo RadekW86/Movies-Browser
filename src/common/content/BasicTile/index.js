@@ -17,6 +17,7 @@ import {
   StyledLink,
 } from "./styled";
 import { toMovie, toProfile } from "../../../core/routes";
+import { nanoid } from "@reduxjs/toolkit";
 
 export const BasicTile = ({
   poster,
@@ -32,11 +33,12 @@ export const BasicTile = ({
     <StyledLink to={movie ? toMovie({ id: id }) : toProfile({ id: id })}>
       {poster ? (
         <Poster
+          movie={movie}
           alt="poster"
           src={`https://image.tmdb.org/t/p/w500/${poster}`}
         />
       ) : (
-        <NoPoster alt="poster">
+        <NoPoster movie={movie} alt="poster">
           {movie ? <StyledVideoIcon /> : <StyledPersonIcon />}
         </NoPoster>
       )}
@@ -53,7 +55,7 @@ export const BasicTile = ({
             </ProductionInf>
             <MovieGenresWrapper>
               {genres.map((genre) => {
-                return <MovieGenre>{genre}</MovieGenre>;
+                <MovieGenre key={nanoid()}>{genre}</MovieGenre>;
               })}
             </MovieGenresWrapper>
           </>
