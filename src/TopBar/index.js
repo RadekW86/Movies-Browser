@@ -1,4 +1,4 @@
-import { toMovies, toPeople, toExtras } from "../core/routes";
+import { toMovies, toPeople } from "../core/routes";
 import { Search } from "./Search/styled";
 import {
   StyledTopBar,
@@ -29,9 +29,6 @@ export const TopBar = () => {
               </Item>
               <Item>
                 <StyledNavLink to={toPeople}>PEOPLE</StyledNavLink>
-              </Item>
-              <Item>
-                <StyledNavLink to={toExtras}>+++</StyledNavLink>
               </Item>
             </StyledList>
           </Navigation>

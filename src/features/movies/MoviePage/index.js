@@ -1,40 +1,48 @@
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Container } from "../../../common/Container/styled";
+import { Section } from "../../../common/Section";
+import { MovieBanner } from "./MovieBanner";
+import { MainTile } from "../../../common/content/MainTile";
+import { BasicTile } from "../../../common/content/BasicTile";
 import { nanoid } from "@reduxjs/toolkit";
 import { Loading } from "../../../common/content/Loading";
 import { Error } from "../../../common/content/Error";
-import { Section } from "../../../common/Section";
-import { Container } from "../../../common/Container/styled";
-import { BasicTile } from "../../../common/content/BasicTile";
-import { MovieBanner } from "./MovieBanner";
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 import {
-  fetchMoviePageLoading,
+  selectMoviePage,
+  selectMoviePageState,
   selectMovieCredits,
   selectMovieCreditsState,
-  selectMoviePage,
+  fetchMoviePageLoading,
 } from "./moviePageSlice";
-import { selectMoviePageState } from "./moviePageSlice";
-import { MainTile } from "../../../common/content/MainTile";
 
 export const MoviePage = () => {
+  const params = useParams();
+  const movie_id = params.id;
   const moviePage = useSelector(selectMoviePage);
   const moviePageState = useSelector(selectMoviePageState);
   const movieCredits = useSelector(selectMovieCredits);
   const movieCreditsState = useSelector(selectMovieCreditsState);
   const dispatch = useDispatch();
-  const params = useParams();
-  const movie_id = params.id;
 
   useEffect(() => {
     dispatch(fetchMoviePageLoading(movie_id));
-  }, [movie_id]);
+  }, []);
 
   switch (moviePageState) {
     case "loading":
-      return <Section fullpage content={<Loading />} />;
+      return (
+        <Container>
+          <Section fullpage content={<Loading />} />
+        </Container>
+      );
     case "error":
-      return <Section fullpage content={<Error />} />;
+      return (
+        <Container>
+          <Section fullpage content={<Error />} />
+        </Container>
+      );
     case "success": {
       if (movieCreditsState === "success") {
         return (
@@ -47,11 +55,10 @@ export const MoviePage = () => {
             />
             <Container>
               <Section
-                fullpage
                 content={
                   <MainTile
                     movie
-                    name={moviePage.original_title}
+                    name={moviePage.title || moviePage.original_name}
                     poster={moviePage.poster_path}
                     productionYear={moviePage.release_date}
                     description={moviePage.overview}
@@ -62,30 +69,36 @@ export const MoviePage = () => {
                   />
                 }
               />
-              <Section
-                people
-                title="Cast"
-                content={movieCredits.cast.map((actor) => (
-                  <BasicTile
-                    key={nanoid()}
-                    poster={actor.profile_path}
-                    name={actor.name}
-                    productionInF={actor.character}
-                  ></BasicTile>
-                ))}
-              />
-              <Section
-                people
-                title="Crew"
-                content={movieCredits.crew.map((actor) => (
-                  <BasicTile
-                    key={nanoid()}
-                    poster={actor.profile_path}
-                    name={actor.name}
-                    productionInF={actor.job}
-                  ></BasicTile>
-                ))}
-              />
+              {movieCredits.cast.length > 0 && (
+                <Section
+                  people
+                  title="Cast"
+                  content={movieCredits.cast.map((actor) => (
+                    <BasicTile
+                      key={nanoid()}
+                      name={actor.name}
+                      poster={actor.profile_path}
+                      productionInF={actor.character}
+                      id={actor.id}
+                    ></BasicTile>
+                  ))}
+                />
+              )}
+              {movieCredits.crew.length > 0 && (
+                <Section
+                  people
+                  title="Crew"
+                  content={movieCredits.crew.map((actor) => (
+                    <BasicTile
+                      key={nanoid()}
+                      name={actor.name}
+                      poster={actor.profile_path}
+                      productionInF={actor.job}
+                      id={actor.id}
+                    ></BasicTile>
+                  ))}
+                />
+              )}
             </Container>
           </>
         );

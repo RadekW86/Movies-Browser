@@ -1,3 +1,6 @@
+import { nanoid } from "@reduxjs/toolkit";
+import { toMovie, toProfile } from "../../../core/routes";
+import { IMAGE_PATH } from "../../getAPI";
 import {
   StyledBasicTile,
   Poster,
@@ -16,7 +19,6 @@ import {
   StyledPersonIcon,
   StyledLink,
 } from "./styled";
-import { toMovie, toProfile } from "../../../core/routes";
 
 export const BasicTile = ({
   poster,
@@ -32,11 +34,12 @@ export const BasicTile = ({
     <StyledLink to={movie ? toMovie({ id: id }) : toProfile({ id: id })}>
       {poster ? (
         <Poster
+          movie={movie}
           alt="poster"
-          src={`https://image.tmdb.org/t/p/w500/${poster}`}
+          src={`${IMAGE_PATH}${poster}`}
         />
       ) : (
-        <NoPoster alt="poster">
+        <NoPoster movie={movie} alt="poster">
           {movie ? <StyledVideoIcon /> : <StyledPersonIcon />}
         </NoPoster>
       )}
@@ -49,11 +52,11 @@ export const BasicTile = ({
         {movie ? (
           <>
             <ProductionInf movie={movie}>
-              {new Date(productionInF).getFullYear()}
+              {productionInF ? (new Date(productionInF).getFullYear()) : ""}
             </ProductionInf>
             <MovieGenresWrapper>
               {genres.map((genre) => {
-                return <MovieGenre>{genre}</MovieGenre>;
+                <MovieGenre key={nanoid()}>{genre}</MovieGenre>;
               })}
             </MovieGenresWrapper>
           </>
@@ -64,7 +67,7 @@ export const BasicTile = ({
       {movie ? (
         <MovieRating>
           <StyledStarIcon />
-          <Rate>{rate}</Rate>
+          <Rate>{rate.toFixed(1)}</Rate>
           <Votes>{`${votes} votes`}</Votes>
         </MovieRating>
       ) : (

@@ -1,16 +1,16 @@
 import { put, call, takeLatest } from "redux-saga/effects";
 import {
-  fetchMovieCreditsSuccess,
-  fetchMoviePageError,
   fetchMoviePageLoading,
   fetchMoviePageSuccess,
+  fetchMoviePageError,
+  fetchMovieCreditsSuccess,
 } from "./moviePageSlice";
-import { getMovie, getMovieCredits } from "../getMovies";
+import { useGetAPI } from "../../../common/getAPI";
 
 function* watchFetchMoviePageHandler({ payload: movie_id }) {
   try {
-    const movie = yield call(getMovie, movie_id);
-    const movieCredits = yield call(getMovieCredits, movie_id);
+    const movie = yield call(useGetAPI, "movie", movie_id);
+    const movieCredits = yield call(useGetAPI, "movieCredits", movie_id);
     yield put(fetchMoviePageSuccess(movie));
     yield put(fetchMovieCreditsSuccess(movieCredits));
   } catch (error) {

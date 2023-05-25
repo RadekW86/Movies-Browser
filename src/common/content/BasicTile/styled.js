@@ -37,24 +37,20 @@ export const Poster = styled.img`
   cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    width: 120px;
-    height: 178px;
-    margin: 0 auto;
+    ${({ movie }) =>
+      movie &&
+      css`
+        @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+          width: 114px;
+          height: 169px;
+        }
+      `};
   }
-
-  ${({ movie }) =>
-    movie &&
-    css`
-      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-        max-width: 114px;
-        max-height: 169px;
-      }
-    `};
 `;
 
 export const NoPoster = styled.div`
+  height: 100%;
   width: 100%;
-  height: 264px;
   border-radius: 5px;
   aspect-ratio: 2 / 3;
   display: flex;
@@ -64,9 +60,14 @@ export const NoPoster = styled.div`
   cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    max-width: 114px;
-    max-height: 169px;
-    margin: 0 auto;
+    ${({ movie }) =>
+      movie &&
+      css`
+        @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+          width: 114px;
+          height: 169px;
+        }
+      `};
   }
 `;
 
@@ -76,10 +77,10 @@ export const StyledVideoIcon = styled(VideoIcon)`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     height: 37px;
-  };
+  }
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     height: 37px;
-  };
+  }
 `;
 
 export const StyledPersonIcon = styled(PersonIcon)`
@@ -88,10 +89,10 @@ export const StyledPersonIcon = styled(PersonIcon)`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     height: 45px;
-  };
+  }
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     height: 45px;
-  };
+  }
 `;
 
 export const ContainerInf = styled.div`
@@ -231,13 +232,13 @@ export const Votes = styled.p`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  
+
   &:visited {
   }
   &:hover {
     filter: brightness(110%);
   }
   &:focus {
-    filter: brightness(120%);
+    filter: brightness(110%);
   }
 `;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import {ReactComponent as exclamationImage}  from "../../../images/exclamation.svg";
+import { ReactComponent as exclamationImage } from "../../../images/exclamation.svg";
+import { Link } from "react-router-dom/cjs/react-router-dom.min.js";
 
 export const StyledDiv = styled.div`
   margin: 151px 0px;
@@ -48,10 +49,24 @@ export const StyledReturnButton = styled.button`
   border: none;
   width: 181px;
   height: 51px;
+  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 10px;
     width: 130px;
     height: 37px;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+
+  &:visited {
+  }
+  &:hover {
+    filter: brightness(110%);
+  }
+  &:focus {
+    filter: brightness(110%);
   }
 `;

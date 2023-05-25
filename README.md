@@ -6,10 +6,14 @@
 ## General info:
 This app is in the development stage. Current deploy involves:
 <ul>
-<li>Top bar with navigation</li>
-<li>popular movies layout page</li>
-<li>popular people layout page</li>
-<li>temporal +++ page, where other components are present (yet to be used in this app in the future)</li>
+<li>Top bar with active navigation</li>
+<li>popular movies page with pagination</li>
+<li>popular people page with pagination</li>
+<li>detailed movie credits page</li>
+<li>detailed profile credits page</li>
+<li>interactive links between items</li>
+<li>loading & error page</li>
+<li>all presented data fed from API (themoviedb.org)</li>
 </ul>
  
 ## Technologies used:
@@ -19,6 +23,9 @@ This app is in the development stage. Current deploy involves:
 <li>React.js</li>
 <li>Styled Components</li>
 <li>React Router</li>
+<li>React Redux</li>
+<li>Redux-saga</li>
+<li>reduxjs/toolkit</li>
 </ul>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

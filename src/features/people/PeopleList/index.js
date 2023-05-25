@@ -6,9 +6,9 @@ import { Loading } from "../../../common/content/Loading";
 import { Error } from "../../../common/content/Error";
 import { useSelector } from "react-redux";
 import { selectPeople, selectPeopleState, selectPage } from "./peopleSlice";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useGetQueryParameter } from "../../../common/setQueryParameters";
+import { useEffect } from "react";
 import { fetchPeopleLoading } from "./peopleSlice";
 
 export const PeopleList = () => {
@@ -16,9 +16,7 @@ export const PeopleList = () => {
   const peopleList = useSelector(selectPeople);
   const page = useSelector(selectPage);
   const dispatch = useDispatch();
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const pageNumber = searchParams.get("page");
+  const pageNumber = useGetQueryParameter("page");
 
   useEffect(() => {
     dispatch(fetchPeopleLoading(pageNumber));
@@ -26,9 +24,17 @@ export const PeopleList = () => {
 
   switch (peopleState) {
     case "loading":
-      return <Section fullpage content={<Loading />} />;
+      return (
+        <Container>
+          <Section fullpage content={<Loading />} />
+        </Container>
+      );
     case "error":
-      return <Section fullpage content={<Error />} />;
+      return (
+        <Container>
+          <Section fullpage content={<Error />} />
+        </Container>
+      );
     case "success":
       return (
         <Container>

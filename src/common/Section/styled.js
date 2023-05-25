@@ -1,9 +1,12 @@
 import styled, { css } from "styled-components";
 
 export const StyledSection = styled.section`
-  margin: 0 auto;
   padding-top: 32px;
   padding-bottom: 32px;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
+    margin: 0 26px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     padding-top: 24px;
@@ -46,13 +49,13 @@ export const StyledFoot = styled.div`
 `;
 
 export const StyledContent = styled.div`
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
 `;
 
 export const StyledTiles = styled.ul`
   list-style: none;
-  margin: 0 auto;
+  margin: 0;
   padding: 12px;
   display: grid;
 

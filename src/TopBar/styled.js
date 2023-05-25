@@ -13,7 +13,7 @@ export const StyledTopBar = styled.div`
   z-index: 1;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    padding: 32px 0 16px;
+    padding-top: 32px;
   }
 `;
 
@@ -27,7 +27,7 @@ export const StyledTopContent = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     justify-content: center;
-    gap: 20px;
+    gap: 32px 90px;
   }
 `;
 

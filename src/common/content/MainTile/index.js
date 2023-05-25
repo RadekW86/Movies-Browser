@@ -1,3 +1,5 @@
+import { nanoid } from "@reduxjs/toolkit";
+import { IMAGE_PATH } from "../../getAPI";
 import {
   StyledMainTile,
   Poster,
@@ -20,6 +22,7 @@ import {
   InformationWrapper,
   Span,
   InformationFiled,
+  MaxRate,
 } from "./styled";
 
 export const MainTile = ({
@@ -36,7 +39,7 @@ export const MainTile = ({
 }) => (
   <StyledMainTile movie={movie}>
     {poster ? (
-      <Poster alt="poster" src={`https://image.tmdb.org/t/p/w500/${poster}`} />
+      <Poster alt="poster" src={`${IMAGE_PATH}${poster}`} />
     ) : (
       <NoPoster alt="poster">
         {movie ? <StyledVideoIcon /> : <StyledPersonIcon />}
@@ -47,7 +50,7 @@ export const MainTile = ({
         <NameTitle>{name}</NameTitle>
         {movie ? (
           <ProductionYear>
-            {new Date(productionYear).getFullYear()}
+            {productionYear ? new Date(productionYear).getFullYear() : ""}
           </ProductionYear>
         ) : (
           ""
@@ -63,19 +66,39 @@ export const MainTile = ({
                 </>
               )}
             </NameInformation>
-            <Information>{firstInformation}</Information>
+            {movie ? (
+              ""
+            ) : (
+              <Information>
+                {new Date(firstInformation).toLocaleString("pl-PL", {
+                  day: "numeric",
+                  month: "numeric",
+                  year: "numeric",
+                })}
+              </Information>
+            )}
           </InformationFiled>
           <InformationFiled>
             <NameInformation movie={movie}>
               {movie ? "Release date:" : "Place of birth:"}
             </NameInformation>
-            <Information>{secondInformation}</Information>
+            {movie ? (
+              <Information>
+                {new Date(secondInformation).toLocaleString("pl-PL", {
+                  day: "numeric",
+                  month: "numeric",
+                  year: "numeric",
+                })}
+              </Information>
+            ) : (
+              secondInformation
+            )}
           </InformationFiled>
         </InformationWrapper>
         {movie ? (
           <MovieGenresWrapper>
             {genres.map((genre) => {
-              return <MovieGenre>{genre.name}</MovieGenre>;
+              <MovieGenre key={nanoid()}>{genre.name}</MovieGenre>;
             })}
           </MovieGenresWrapper>
         ) : (
@@ -85,7 +108,10 @@ export const MainTile = ({
       {movie ? (
         <MovieRating>
           <StyledStarIcon />
-          <Rate>{`${rate}/10`}</Rate>
+          <Rate>
+            {`${rate.toFixed(1)} / `}
+            <MaxRate>10</MaxRate>
+          </Rate>
           <Votes>{`${votes} votes`}</Votes>
         </MovieRating>
       ) : (

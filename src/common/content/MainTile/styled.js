@@ -23,6 +23,7 @@ export const StyledMainTile = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    grid-template-columns: auto 1fr;
     grid-gap: 16px;
     padding: 16px;
   }
@@ -81,9 +82,11 @@ export const ContainerInf = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 40px 0;
+  gap: 32px;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     padding: 0;
+    gap: 16px;
   }
 `;
 
@@ -95,7 +98,7 @@ export const DescriptionWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     margin-bottom: 12px;
-    grid-gap: 4px;
+    grid-gap: 8px;
     margin: 0;
   }
 `;
@@ -163,7 +166,7 @@ export const MovieGenre = styled.li`
 
 export const MovieRating = styled.div`
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 14px;
   margin: 0;
 
@@ -185,7 +188,6 @@ export const Rate = styled.p`
   padding: 0;
   font-weight: 600;
   font-size: 22px;
-  line-height: ${({ theme }) => theme.lineHeight.m};
   color: ${({ theme }) => theme.colors.black};
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
@@ -193,16 +195,19 @@ export const Rate = styled.p`
   }
 `;
 
-export const Votes = styled.p`
+export const MaxRate = styled.span`
   margin: 0;
   font-weight: 400;
-  font-size: 17px;
+  font-size: 14px;
   line-height: ${({ theme }) => theme.lineHeight.m};
   color: ${({ theme }) => theme.colors.darkerGrey};
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 13px;
   }
+`;
+
+export const Votes = styled(MaxRate)`
 `;
 
 export const Description = styled.p`
@@ -233,7 +238,7 @@ export const InformationWrapper = styled.div`
   gap: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    margin: 8px 0;
+    margin: 0;
   }
 `;
 

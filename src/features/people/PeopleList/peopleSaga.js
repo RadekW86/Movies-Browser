@@ -4,11 +4,11 @@ import {
   fetchPeopleLoading,
   fetchPeopleSuccess,
 } from "./peopleSlice";
-import { getPeopleList } from "./getPeopleList";
+import { useGetAPI } from "../../../common/getAPI";
 
 function* watchFetchPeopleHandler({ payload: page }) {
   try {
-    const people = yield call(getPeopleList, page);
+    const people = yield call(useGetAPI, "peopleList", page);
     yield put(fetchPeopleSuccess(people));
   } catch (error) {
     yield put(fetchPeopleError());
