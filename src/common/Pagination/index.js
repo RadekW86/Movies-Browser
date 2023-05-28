@@ -17,7 +17,10 @@ export const Pagination = ({ currentPage, totalPages }) => {
   const lastPage = page === 500;
   const setQueryParameter = useSetQueryParameter();
   const setPage = (targetValue) => {
-    setQueryParameter("page", targetValue);
+    setQueryParameter({
+      nameValue: "page",
+      value: targetValue,
+    });
   };
   return (
     <PaginationContainer>
