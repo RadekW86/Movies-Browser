@@ -9,10 +9,14 @@ import {
   fetchPeopleError,
 } from "../../features/people/PeopleList/peopleSlice";
 import { useGetAPI } from "../../common/getAPI";
-import { selectEngaged, selectPage, selectQuery, selectSearchType, setQuery } from "./searchSlice";
+import {
+  selectEngaged,
+  selectPage,
+  selectQuery,
+  selectSearchType,
+  setQuery,
+} from "./searchSlice";
 import { call, put, select, throttle } from "redux-saga/effects";
-{
-}
 
 function* watchSearchHandler() {
   const searchType = yield select(selectSearchType);
