@@ -9,6 +9,7 @@ import { selectMovies, selectMoviesState, selectPage } from "./moviesSlice";
 import { useDispatch } from "react-redux";
 import { useGetQueryParameter } from "../../../common/setQueryParameters";
 import { useEffect } from "react";
+import { setSearchTypeMovie } from "../../../TopBar/Search/searchSlice";
 import { fetchMoviesLoading } from "./moviesSlice";
 
 export const MoviesList = () => {
@@ -17,6 +18,10 @@ export const MoviesList = () => {
   const page = useSelector(selectPage);
   const dispatch = useDispatch();
   const pageNumber = useGetQueryParameter("page");
+
+  useEffect(() => {
+    dispatch(setSearchTypeMovie());
+  }, []);
 
   useEffect(() => {
     dispatch(fetchMoviesLoading(pageNumber));

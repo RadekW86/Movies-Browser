@@ -8,7 +8,6 @@ import { Loading } from "../../../common/content/Loading";
 import { Error } from "../../../common/content/Error";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
 import {
   selectMoviePage,
   selectMoviePageState,
@@ -16,6 +15,8 @@ import {
   selectMovieCreditsState,
   fetchMoviePageLoading,
 } from "./moviePageSlice";
+import { useEffect } from "react";
+import { setSearchTypeMovie } from "../../../TopBar/Search/searchSlice";
 
 export const MoviePage = () => {
   const params = useParams();
@@ -27,6 +28,7 @@ export const MoviePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(setSearchTypeMovie());
     dispatch(fetchMoviePageLoading(movie_id));
   }, []);
 

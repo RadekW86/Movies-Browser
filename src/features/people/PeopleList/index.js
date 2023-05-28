@@ -9,6 +9,7 @@ import { selectPeople, selectPeopleState, selectPage } from "./peopleSlice";
 import { useDispatch } from "react-redux";
 import { useGetQueryParameter } from "../../../common/setQueryParameters";
 import { useEffect } from "react";
+import { setSearchTypeProfile } from "../../../TopBar/Search/searchSlice";
 import { fetchPeopleLoading } from "./peopleSlice";
 
 export const PeopleList = () => {
@@ -17,6 +18,10 @@ export const PeopleList = () => {
   const page = useSelector(selectPage);
   const dispatch = useDispatch();
   const pageNumber = useGetQueryParameter("page");
+
+  useEffect(() => {
+    dispatch(setSearchTypeProfile());
+  }, []);
 
   useEffect(() => {
     dispatch(fetchPeopleLoading(pageNumber));

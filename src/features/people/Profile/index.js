@@ -15,6 +15,7 @@ import {
   fetchProfileLoading,
 } from "./profileSlice";
 import { useEffect } from "react";
+import { setSearchTypeProfile } from "../../../TopBar/Search/searchSlice";
 
 export const Profile = () => {
   const params = useParams();
@@ -26,6 +27,7 @@ export const Profile = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(setSearchTypeProfile());
     dispatch(fetchProfileLoading(profile_id));
   }, []);
 

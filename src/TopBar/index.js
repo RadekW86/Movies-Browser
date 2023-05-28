@@ -1,5 +1,5 @@
 import { toMovies, toPeople } from "../core/routes";
-import { Search } from "./Search/styled";
+import { Search } from "./Search/index";
 import {
   StyledTopBar,
   Item,
@@ -33,7 +33,7 @@ export const TopBar = () => {
             </StyledList>
           </Navigation>
         </StyledTopSubContent>
-        <Search type="text" placeholder="Search for movies..." />
+        <Search />
       </StyledTopContent>
     </StyledTopBar>
   );
