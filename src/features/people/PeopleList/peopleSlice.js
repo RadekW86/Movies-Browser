@@ -5,7 +5,6 @@ const peopleSlice = createSlice({
 
   initialState: {
     people: [],
-    page: 1,
   },
 
   reducers: {
