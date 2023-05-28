@@ -2,6 +2,7 @@ import { watchFetchMovies } from "../features/movies/MoviesList/moviesSaga";
 import { watchFetchMoviePage } from "../features/movies/MoviePage/moviePageSaga";
 import { watchFetchPeople } from "../features/people/PeopleList/peopleSaga";
 import { watchFetchProfile } from "../features/people/Profile/profileSaga";
+import { watchFetchMovieGenres } from "../features/movies/movieGenresSaga";
 import { all } from "redux-saga/effects";
 
 export default function* rootSaga() {
@@ -10,5 +11,6 @@ export default function* rootSaga() {
     watchFetchMoviePage(),
     watchFetchPeople(),
     watchFetchProfile(),
+    watchFetchMovieGenres(),
   ]);
 }
