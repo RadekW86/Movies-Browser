@@ -9,7 +9,7 @@ import {
   fetchPeopleError,
 } from "../../features/people/PeopleList/peopleSlice";
 import { useGetAPI } from "../../common/getAPI";
-import { selectEngaged, selectQuery, selectSearchType, setQuery } from "./searchSlice";
+import { selectEngaged, selectPage, selectQuery, selectSearchType, setQuery } from "./searchSlice";
 import { call, put, select, throttle } from "redux-saga/effects";
 {
 }
@@ -17,13 +17,14 @@ import { call, put, select, throttle } from "redux-saga/effects";
 function* watchSearchHandler() {
   const searchType = yield select(selectSearchType);
   const userQuery = yield select(selectQuery);
+  const page = yield select(selectPage);
   const engaged = yield select(selectEngaged);
 
   if (engaged) {
     if (searchType === "movies") {
       try {
         yield put(fetchMoviesLoading());
-        const movies = yield call(useGetAPI, "moviesSearch", 1, userQuery);
+        const movies = yield call(useGetAPI, "moviesSearch", page, userQuery);
         yield put(fetchMoviesSuccess(movies));
       } catch (error) {
         yield put(fetchMoviesError());
@@ -31,7 +32,7 @@ function* watchSearchHandler() {
     } else {
       try {
         yield put(fetchPeopleLoading());
-        const movies = yield call(useGetAPI, "peopleSearch", 1, userQuery);
+        const movies = yield call(useGetAPI, "peopleSearch", page, userQuery);
         yield put(fetchPeopleSuccess(movies));
       } catch (error) {
         yield put(fetchPeopleError());
