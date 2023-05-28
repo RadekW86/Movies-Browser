@@ -3,22 +3,46 @@ import { createSlice } from "@reduxjs/toolkit";
 const searchModuleSlice = createSlice({
   name: "searchModule",
 
-  initialState: {},
+  initialState: {
+    query: "",
+    engaged: false,
+  },
 
   reducers: {
-    setSearchTypeMovie: () => ({
+    setSearchTypeMovie: (state) => ({
+      ...state,
       searchType: "movies",
     }),
-    setSearchTypeProfile: () => ({
+    setSearchTypeProfile: (state) => ({
+      ...state,
       searchType: "people",
+    }),
+    setQuery: (state, { payload: userQuery }) => ({
+      ...state,
+      query: userQuery,
+    }),
+    engage: (state) => ({
+      ...state,
+      engaged: true,
+    }),
+    disengage: (state) => ({
+      ...state,
+      engaged: false,
     }),
   },
 });
 
-export const { setSearchTypeMovie, setSearchTypeProfile } =
-  searchModuleSlice.actions;
+export const {
+  setSearchTypeMovie,
+  setSearchTypeProfile,
+  setQuery,
+  engage,
+  disengage,
+} = searchModuleSlice.actions;
 
 export const selectSearchModuleSlice = (state) => state.searchModule;
 export const selectSearchType = (state) => selectSearchModuleSlice(state).searchType;
+export const selectQuery = (state) => selectSearchModuleSlice(state).query;
+export const selectEngaged = (state) => selectSearchModuleSlice(state).engaged;
 
 export default searchModuleSlice.reducer;
