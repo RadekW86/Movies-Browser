@@ -23,6 +23,8 @@ export const useGetAPI = async (referenceType, param1) => {
     case "profileCredits":
       URL_API = `${BASE_PATH}/person/${param1}/combined_credits?api_key=${KEY_API}&language=en-US&`;
       break;
+    case "movieGenres":
+      URL_API = `${BASE_PATH}/genre/movie/list?api_key=${KEY_API}&language=en`;
   }
 
   const response = await fetch(URL_API);

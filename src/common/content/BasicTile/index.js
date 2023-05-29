@@ -1,6 +1,7 @@
-import { nanoid } from "@reduxjs/toolkit";
 import { toMovie, toProfile } from "../../../core/routes";
 import { IMAGE_PATH } from "../../getAPI";
+import { MovieGenres } from "./MovieGenres";
+import { selectMovieGenres } from "../../../features/movies/movieGenresSlice";
 import {
   StyledBasicTile,
   Poster,
@@ -10,8 +11,6 @@ import {
   DescriptionWrapper,
   NameTitle,
   ProductionInf,
-  MovieGenresWrapper,
-  MovieGenre,
   MovieRating,
   Rate,
   Votes,
@@ -19,6 +18,7 @@ import {
   StyledPersonIcon,
   StyledLink,
 } from "./styled";
+import { useSelector } from "react-redux";
 
 export const BasicTile = ({
   poster,
@@ -29,50 +29,47 @@ export const BasicTile = ({
   votes,
   movie,
   id,
-}) => (
-  <StyledBasicTile movie={movie}>
-    <StyledLink to={movie ? toMovie({ id: id }) : toProfile({ id: id })}>
-      {poster ? (
-        <Poster
-          movie={movie}
-          alt="poster"
-          src={`${IMAGE_PATH}${poster}`}
-        />
-      ) : (
-        <NoPoster movie={movie} alt="poster">
-          {movie ? <StyledVideoIcon /> : <StyledPersonIcon />}
-        </NoPoster>
-      )}
-    </StyledLink>
-    <ContainerInf>
-      <DescriptionWrapper>
-        <StyledLink to={movie ? toMovie({ id: id }) : toProfile({ id: id })}>
-          <NameTitle movie={movie}>{name}</NameTitle>
-        </StyledLink>
-        {movie ? (
-          <>
-            <ProductionInf movie={movie}>
-              {productionInF ? (new Date(productionInF).getFullYear()) : ""}
-            </ProductionInf>
-            <MovieGenresWrapper>
-              {genres.map((genre) => {
-                <MovieGenre key={nanoid()}>{genre}</MovieGenre>;
-              })}
-            </MovieGenresWrapper>
-          </>
+}) => {
+  const movieGenresArray = useSelector(selectMovieGenres);
+
+  return (
+    <StyledBasicTile movie={movie}>
+      <StyledLink to={movie ? toMovie({ id: id }) : toProfile({ id: id })}>
+        {poster ? (
+          <Poster movie={movie} alt="poster" src={`${IMAGE_PATH}${poster}`} />
         ) : (
-          <ProductionInf>{productionInF}</ProductionInf>
+          <NoPoster movie={movie} alt="poster">
+            {movie ? <StyledVideoIcon /> : <StyledPersonIcon />}
+          </NoPoster>
         )}
-      </DescriptionWrapper>
-      {movie ? (
-        <MovieRating>
-          <StyledStarIcon />
-          <Rate>{rate.toFixed(1)}</Rate>
-          <Votes>{`${votes} votes`}</Votes>
-        </MovieRating>
-      ) : (
-        ""
-      )}
-    </ContainerInf>
-  </StyledBasicTile>
-);
+      </StyledLink>
+      <ContainerInf>
+        <DescriptionWrapper>
+          <StyledLink to={movie ? toMovie({ id: id }) : toProfile({ id: id })}>
+            <NameTitle movie={movie}>{name}</NameTitle>
+          </StyledLink>
+          {movie ? (
+            <>
+              <ProductionInf movie={movie}>
+                {productionInF ? new Date(productionInF).getFullYear() : ""}
+              </ProductionInf>
+              <MovieGenres
+                genres={genres}
+                movieGenresArray={movieGenresArray}
+              />
+            </>
+          ) : (
+            <ProductionInf>{productionInF}</ProductionInf>
+          )}
+        </DescriptionWrapper>
+        {movie && (
+          <MovieRating>
+            <StyledStarIcon />
+            <Rate>{rate.toFixed(1)}</Rate>
+            <Votes>{`${votes} votes`}</Votes>
+          </MovieRating>
+        )}
+      </ContainerInf>
+    </StyledBasicTile>
+  );
+};
