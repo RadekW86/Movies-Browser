@@ -1,4 +1,4 @@
-export const IMAGE_PATH = "https://image.tmdb.org/t/p/w500/";
+export const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
 const KEY_API = "445d0cbde8fc680f93bc54bd75a8924d";
 const BASE_PATH = "https://api.themoviedb.org/3";
 let URL_API;
