@@ -9,6 +9,8 @@ import {
   selectMovies,
   selectMoviesState,
   selectResultsPage,
+  selectTotalPages,
+  selectTotalResults,
 } from "./moviesSlice";
 import { useDispatch } from "react-redux";
 import { useGetQueryParameter } from "../../../common/setQueryParameters";
@@ -20,6 +22,8 @@ export const MoviesList = () => {
   const moviesState = useSelector(selectMoviesState);
   const moviesList = useSelector(selectMovies);
   const resultsPage = useSelector(selectResultsPage);
+  const totalPages = useSelector(selectTotalPages);
+  const totalResults = useSelector(selectTotalResults);
   const dispatch = useDispatch();
   const page = useGetQueryParameter("page");
 
@@ -64,7 +68,12 @@ export const MoviesList = () => {
                 id={movie.id}
               />
             ))}
-            foot={<Pagination currentPage={resultsPage} totalPages="500" />}
+            foot={
+              <Pagination
+                currentPage={resultsPage}
+                totalPages={totalPages > 500 ? "500" : totalPages}
+              />
+            }
           />
         </Container>
       );
