@@ -11,14 +11,23 @@ import {
   selectResultsPage,
   selectTotalPages,
   selectTotalResults,
+  fetchPeopleLoading,
 } from "./peopleSlice";
 import { useDispatch } from "react-redux";
 import { useGetQueryParameter } from "../../../common/setQueryParameters";
 import { useEffect } from "react";
-import { setSearchTypeProfile } from "../../../TopBar/Search/searchSlice";
-import { fetchPeopleLoading } from "./peopleSlice";
+import {
+  setSearchTypeProfile,
+  setQuery,
+  selectEngaged,
+  setPage,
+  disengage,
+  selectQuery,
+} from "../../../TopBar/Search/searchSlice";
+import { NoResults } from "../../../common/content/NoResults";
 
 export const PeopleList = () => {
+  const engaged = useSelector(selectEngaged);
   const peopleState = useSelector(selectPeopleState);
   const peopleList = useSelector(selectPeople);
   const resultsPage = useSelector(selectResultsPage);
@@ -26,14 +35,21 @@ export const PeopleList = () => {
   const totalResults = useSelector(selectTotalResults);
   const dispatch = useDispatch();
   const page = useGetQueryParameter("page");
+  const query = useSelector(selectQuery);
 
   useEffect(() => {
     dispatch(setSearchTypeProfile());
+    dispatch(setQuery(""));
+    dispatch(disengage());
   }, []);
 
   useEffect(() => {
-    dispatch(fetchPeopleLoading(page));
-  }, [page]);
+    if (!engaged) {
+      dispatch(fetchPeopleLoading(page));
+    } else {
+      dispatch(setPage(page ? page : 1));
+    }
+  }, [page, engaged]);
 
   switch (peopleState) {
     case "loading":
@@ -53,21 +69,41 @@ export const PeopleList = () => {
         <Container>
           <Section
             fullpage
-            people
-            title="Popular People"
-            content={peopleList.map((people) => (
-              <BasicTile
-                key={people.id}
-                poster={people.profile_path}
-                name={people.name}
-                id={people.id}
-              />
-            ))}
+            people={peopleList.length === 0 ? "" : "people"}
+            title={
+              !engaged
+                ? "Popular People"
+                : peopleList.length === 0
+                ? `Sorry, there are no results for “${query}”`
+                : `Search results for “${query}” ( ${
+                    totalResults >= 10000 ? "10000 +" : totalResults
+                  } )`
+            }
+            content={
+              peopleList.length === 0 ? (
+                <NoResults />
+              ) : (
+                <>
+                  {peopleList.map((people) => (
+                    <BasicTile
+                      key={people.id}
+                      poster={people.profile_path}
+                      name={people.name}
+                      id={people.id}
+                    />
+                  ))}
+                </>
+              )
+            }
             foot={
-              <Pagination
-                currentPage={resultsPage}
-                totalPages={totalPages > 500 ? "500" : totalPages}
-              />
+              peopleList.length === 0 ? (
+                ""
+              ) : (
+                <Pagination
+                  currentPage={resultsPage}
+                  totalPages={totalPages > 500 ? "500" : totalPages}
+                />
+              )
             }
           />
         </Container>

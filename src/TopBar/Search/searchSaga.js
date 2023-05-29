@@ -15,6 +15,7 @@ import {
   selectQuery,
   selectSearchType,
   setQuery,
+  setPage,
 } from "./searchSlice";
 import { call, put, select, throttle } from "redux-saga/effects";
 
@@ -27,16 +28,24 @@ function* watchSearchHandler() {
   if (engaged) {
     if (searchType === "movies") {
       try {
-        yield put(fetchMoviesLoading());
-        const movies = yield call(useGetAPI, "moviesSearch", resultsPage, userQuery);
+        const movies = yield call(
+          useGetAPI,
+          "moviesSearch",
+          resultsPage,
+          userQuery
+        );
         yield put(fetchMoviesSuccess(movies));
       } catch (error) {
         yield put(fetchMoviesError());
       }
     } else {
       try {
-        yield put(fetchPeopleLoading());
-        const people = yield call(useGetAPI, "peopleSearch", resultsPage, userQuery);
+        const people = yield call(
+          useGetAPI,
+          "peopleSearch",
+          resultsPage,
+          userQuery
+        );
         yield put(fetchPeopleSuccess(people));
       } catch (error) {
         yield put(fetchPeopleError());
@@ -47,5 +56,5 @@ function* watchSearchHandler() {
 }
 
 export function* watchSearch() {
-  yield throttle(800, setQuery, watchSearchHandler);
+  yield throttle(800, [setQuery, setPage], watchSearchHandler);
 }
