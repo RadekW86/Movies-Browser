@@ -5,7 +5,11 @@ import { Pagination } from "../../../common/Pagination";
 import { Loading } from "../../../common/content/Loading";
 import { Error } from "../../../common/content/Error";
 import { useSelector } from "react-redux";
-import { selectPeople, selectPeopleState, selectPage } from "./peopleSlice";
+import {
+  selectPeople,
+  selectPeopleState,
+  selectResultsPage,
+} from "./peopleSlice";
 import { useDispatch } from "react-redux";
 import { useGetQueryParameter } from "../../../common/setQueryParameters";
 import { useEffect } from "react";
@@ -15,17 +19,17 @@ import { fetchPeopleLoading } from "./peopleSlice";
 export const PeopleList = () => {
   const peopleState = useSelector(selectPeopleState);
   const peopleList = useSelector(selectPeople);
-  const page = useSelector(selectPage);
+  const resultsPage = useSelector(selectResultsPage);
   const dispatch = useDispatch();
-  const pageNumber = useGetQueryParameter("page");
+  const page = useGetQueryParameter("page");
 
   useEffect(() => {
     dispatch(setSearchTypeProfile());
   }, []);
 
   useEffect(() => {
-    dispatch(fetchPeopleLoading(pageNumber));
-  }, [pageNumber]);
+    dispatch(fetchPeopleLoading(page));
+  }, [page]);
 
   switch (peopleState) {
     case "loading":
@@ -55,7 +59,7 @@ export const PeopleList = () => {
                 id={people.id}
               />
             ))}
-            foot={<Pagination currentPage={page} totalPages="500" />}
+            foot={<Pagination currentPage={resultsPage} totalPages="500" />}
           />
         </Container>
       );

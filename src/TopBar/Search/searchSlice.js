@@ -20,7 +20,7 @@ const searchModuleSlice = createSlice({
     setQuery: (state, { payload: userQuery }) => ({
       ...state,
       query: userQuery,
-      page: 1,
+      resultsPage: 1,
     }),
     engage: (state) => ({
       ...state,
@@ -32,7 +32,7 @@ const searchModuleSlice = createSlice({
     }),
     setPage: (state, { payload: page }) => ({
       ...state,
-      page: page,
+      resultsPage: page,
     }),
   },
 });
@@ -50,6 +50,6 @@ export const selectSearchModuleSlice = (state) => state.searchModule;
 export const selectSearchType = (state) => selectSearchModuleSlice(state).searchType;
 export const selectQuery = (state) => selectSearchModuleSlice(state).query;
 export const selectEngaged = (state) => selectSearchModuleSlice(state).engaged;
-export const selectPage = (state) => selectSearchModuleSlice(state).page;
+export const selectResultsPage = (state) => selectSearchModuleSlice(state).resultsPage;
 
 export default searchModuleSlice.reducer;

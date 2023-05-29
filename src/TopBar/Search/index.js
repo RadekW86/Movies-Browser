@@ -3,7 +3,7 @@ import { StyledInput } from "./styled";
 import {
   disengage,
   engage,
-  selectPage,
+  selectResultsPage,
   selectQuery,
   selectSearchType,
   setQuery,
@@ -19,7 +19,7 @@ export const Search = () => {
   const placeholder = `Search for ${searchType}...`;
   const setQueryParameters = useSetQueryParameter();
   const userQuery = useSelector(selectQuery);
-  const page = useSelector(selectPage);
+  const page = useSelector(selectResultsPage);
 
   useEffect(() => {
     dispatch(setQuery(input));

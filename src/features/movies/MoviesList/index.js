@@ -5,7 +5,11 @@ import { Error } from "../../../common/content/Error";
 import { BasicTile } from "../../../common/content/BasicTile";
 import { Pagination } from "../../../common/Pagination";
 import { useSelector } from "react-redux";
-import { selectMovies, selectMoviesState, selectPage } from "./moviesSlice";
+import {
+  selectMovies,
+  selectMoviesState,
+  selectResultsPage,
+} from "./moviesSlice";
 import { useDispatch } from "react-redux";
 import { useGetQueryParameter } from "../../../common/setQueryParameters";
 import { useEffect } from "react";
@@ -15,17 +19,17 @@ import { fetchMoviesLoading } from "./moviesSlice";
 export const MoviesList = () => {
   const moviesState = useSelector(selectMoviesState);
   const moviesList = useSelector(selectMovies);
-  const page = useSelector(selectPage);
+  const resultsPage = useSelector(selectResultsPage);
   const dispatch = useDispatch();
-  const pageNumber = useGetQueryParameter("page");
+  const page = useGetQueryParameter("page");
 
   useEffect(() => {
     dispatch(setSearchTypeMovie());
   }, []);
 
   useEffect(() => {
-    dispatch(fetchMoviesLoading(pageNumber));
-  }, [pageNumber]);
+    dispatch(fetchMoviesLoading(page));
+  }, [page]);
 
   switch (moviesState) {
     case "loading":
@@ -60,7 +64,7 @@ export const MoviesList = () => {
                 id={movie.id}
               />
             ))}
-            foot={<Pagination currentPage={page} totalPages="500" />}
+            foot={<Pagination currentPage={resultsPage} totalPages="500" />}
           />
         </Container>
       );

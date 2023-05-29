@@ -11,7 +11,7 @@ import {
 import { useGetAPI } from "../../common/getAPI";
 import {
   selectEngaged,
-  selectPage,
+  selectResultsPage,
   selectQuery,
   selectSearchType,
   setQuery,
@@ -21,14 +21,14 @@ import { call, put, select, throttle } from "redux-saga/effects";
 function* watchSearchHandler() {
   const searchType = yield select(selectSearchType);
   const userQuery = yield select(selectQuery);
-  const page = yield select(selectPage);
+  const resultsPage = yield select(selectResultsPage);
   const engaged = yield select(selectEngaged);
 
   if (engaged) {
     if (searchType === "movies") {
       try {
         yield put(fetchMoviesLoading());
-        const movies = yield call(useGetAPI, "moviesSearch", page, userQuery);
+        const movies = yield call(useGetAPI, "moviesSearch", resultsPage, userQuery);
         yield put(fetchMoviesSuccess(movies));
       } catch (error) {
         yield put(fetchMoviesError());
@@ -36,8 +36,8 @@ function* watchSearchHandler() {
     } else {
       try {
         yield put(fetchPeopleLoading());
-        const movies = yield call(useGetAPI, "peopleSearch", page, userQuery);
-        yield put(fetchPeopleSuccess(movies));
+        const people = yield call(useGetAPI, "peopleSearch", resultsPage, userQuery);
+        yield put(fetchPeopleSuccess(people));
       } catch (error) {
         yield put(fetchPeopleError());
       }
