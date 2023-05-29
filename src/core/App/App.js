@@ -19,7 +19,7 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(fetchMovieGenresLoading());
-  }, [dispatch]);
+  }, []);
 
   return (
     <HashRouter>
