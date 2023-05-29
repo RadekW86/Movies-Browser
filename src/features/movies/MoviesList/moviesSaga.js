@@ -8,7 +8,7 @@ import { useGetAPI } from "../../../common/getAPI";
 
 function* watchFetchMoviesHandler({ payload: page }) {
   try {
-    yield delay(200);
+    yield delay(1);
     const movies = yield call(useGetAPI, "moviesList", page);
     yield put(fetchMoviesSuccess(movies));
   } catch (error) {

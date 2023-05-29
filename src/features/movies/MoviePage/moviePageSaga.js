@@ -9,7 +9,7 @@ import { useGetAPI } from "../../../common/getAPI";
 
 function* watchFetchMoviePageHandler({ payload: movie_id }) {
   try {
-    yield delay(200);
+    yield delay(1);
     const movie = yield call(useGetAPI, "movie", movie_id);
     const movieCredits = yield call(useGetAPI, "movieCredits", movie_id);
     yield put(fetchMoviePageSuccess(movie));
