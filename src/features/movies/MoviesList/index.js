@@ -69,7 +69,7 @@ export const MoviesList = () => {
         <Container>
           <Section
             fullpage
-            movies={moviesList.length === 0 ? "" : "movies"}
+            movies={moviesList.length ? "movies" : ""}
             title={
               !engaged
                 ? "Popular Movies"
