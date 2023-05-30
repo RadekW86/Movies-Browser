@@ -85,7 +85,7 @@ export const StyledTiles = styled.ul`
       grid-gap: 24px;
 
       @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(145px, 1fr));
         justify-items: center;
       }
       @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {

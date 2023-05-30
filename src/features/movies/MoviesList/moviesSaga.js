@@ -1,4 +1,4 @@
-import { put, call, takeLatest } from "redux-saga/effects";
+import { put, call, takeLatest, delay } from "redux-saga/effects";
 import {
   fetchMoviesError,
   fetchMoviesLoading,
@@ -8,6 +8,7 @@ import { useGetAPI } from "../../../common/getAPI";
 
 function* watchFetchMoviesHandler({ payload: page }) {
   try {
+    yield delay(1);
     const movies = yield call(useGetAPI, "moviesList", page);
     yield put(fetchMoviesSuccess(movies));
   } catch (error) {

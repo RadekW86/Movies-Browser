@@ -1,4 +1,3 @@
-import { nanoid } from "@reduxjs/toolkit";
 import { IMAGE_PATH } from "../../getAPI";
 import {
   StyledMainTile,
@@ -48,12 +47,10 @@ export const MainTile = ({
     <ContainerInf>
       <DescriptionWrapper>
         <NameTitle>{name}</NameTitle>
-        {movie ? (
+        {movie && (
           <ProductionYear>
             {productionYear ? new Date(productionYear).getFullYear() : ""}
           </ProductionYear>
-        ) : (
-          ""
         )}
         <InformationWrapper>
           <InformationFiled>
@@ -97,15 +94,15 @@ export const MainTile = ({
         </InformationWrapper>
         {movie ? (
           <MovieGenresWrapper>
-            {genres.map((genre) => {
-              <MovieGenre key={nanoid()}>{genre.name}</MovieGenre>;
-            })}
+            {genres.map((genre) => (
+              <MovieGenre key={genre.id}>{genre.name}</MovieGenre>
+            ))}
           </MovieGenresWrapper>
         ) : (
           ""
         )}
       </DescriptionWrapper>
-      {movie ? (
+      {movie && (
         <MovieRating>
           <StyledStarIcon />
           <Rate>
@@ -114,8 +111,6 @@ export const MainTile = ({
           </Rate>
           <Votes>{`${votes} votes`}</Votes>
         </MovieRating>
-      ) : (
-        ""
       )}
     </ContainerInf>
     <Description>{description}</Description>
