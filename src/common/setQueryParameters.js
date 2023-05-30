@@ -4,9 +4,19 @@ export const useSetQueryParameter = () => {
   const location = useLocation();
   const history = useHistory();
 
-  const setQueryParameter = (nameValue, value) => {
+  const setQueryParameter = ({ nameValue, value, nameValue2, value2 }) => {
     const searchParams = new URLSearchParams(location.search);
-    searchParams.set(nameValue, value);
+
+    if (value2 === undefined) {
+      searchParams.delete(nameValue2);
+      searchParams.set(nameValue, value);
+    } else {
+      searchParams.delete(nameValue);
+      searchParams.delete(nameValue2);
+      searchParams.set(nameValue2, value2);
+      searchParams.set(nameValue, value);
+    }
+
     history.push(`${location.pathname}?${searchParams.toString()}`);
   };
 

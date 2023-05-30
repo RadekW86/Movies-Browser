@@ -14,10 +14,13 @@ import { useSetQueryParameter } from "../setQueryParameters";
 export const Pagination = ({ currentPage, totalPages }) => {
   const page = parseInt(currentPage);
   const firstPage = page === 1;
-  const lastPage = page === 500;
+  const lastPage = page === totalPages;
   const setQueryParameter = useSetQueryParameter();
   const setPage = (targetValue) => {
-    setQueryParameter("page", targetValue);
+    setQueryParameter({
+      nameValue: "page",
+      value: targetValue,
+    });
   };
   return (
     <PaginationContainer>

@@ -3,7 +3,7 @@ const KEY_API = "445d0cbde8fc680f93bc54bd75a8924d";
 const BASE_PATH = "https://api.themoviedb.org/3";
 let URL_API;
 
-export const useGetAPI = async (referenceType, param1) => {
+export const useGetAPI = async (referenceType, param1, param2) => {
   switch (referenceType) {
     case "moviesList":
       URL_API = `${BASE_PATH}/movie/popular?api_key=${KEY_API}&language=en-US&page=${param1}`;
@@ -23,8 +23,15 @@ export const useGetAPI = async (referenceType, param1) => {
     case "profileCredits":
       URL_API = `${BASE_PATH}/person/${param1}/combined_credits?api_key=${KEY_API}&language=en-US&`;
       break;
+    case "moviesSearch":
+      URL_API = `${BASE_PATH}/search/movie?query=${param2}&api_key=${KEY_API}&language=en-US&page=${param1}`;
+      break;
+    case "peopleSearch":
+      URL_API = `${BASE_PATH}/search/person?query=${param2}&api_key=${KEY_API}&language=en-US&page=${param1}`;
+      break;
     case "movieGenres":
       URL_API = `${BASE_PATH}/genre/movie/list?api_key=${KEY_API}&language=en`;
+
   }
 
   const response = await fetch(URL_API);

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import SearchImage from "../../images/search.svg";
 
-export const Search = styled.input`
+export const StyledInput = styled.input`
   height: 48px;
   width: 432px;
   border-radius: 33px;
