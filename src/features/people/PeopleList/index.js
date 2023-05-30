@@ -69,7 +69,7 @@ export const PeopleList = () => {
         <Container>
           <Section
             fullpage
-            people={peopleList.length === 0 ? "" : "people"}
+            people={peopleList.length ? "people" : ""}
             title={
               !engaged
                 ? "Popular People"

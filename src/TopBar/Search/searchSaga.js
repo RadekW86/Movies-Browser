@@ -1,5 +1,4 @@
 import {
-  fetchMoviesLoading,
   fetchMoviesSuccess,
   fetchMoviesError,
 } from "../../features/movies/MoviesList/moviesSlice";
