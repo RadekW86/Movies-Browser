@@ -10,27 +10,38 @@ import { MoviesList } from "../../features/movies/MoviesList";
 import { PeopleList } from "../../features/people/PeopleList";
 import { MoviePage } from "../../features/movies/MoviePage";
 import { Profile } from "../../features/people/Profile";
+import { useEffect } from "react";
+import { fetchMovieGenresLoading } from "../../features/movies/movieGenresSlice";
+import { useDispatch } from "react-redux";
 
-export const App = () => (
-  <HashRouter>
-    <TopBar />
+export const App = () => {
+  const dispatch = useDispatch();
 
-    <Switch>
-      <Route path={toMovies()}>
-        <MoviesList />
-      </Route>
-      <Route path={toMovie()}>
-        <MoviePage />
-      </Route>
-      <Route path={toPeople()}>
-        <PeopleList />
-      </Route>
-      <Route path={toProfile()}>
-        <Profile />
-      </Route>
-      <Route>
-        <Redirect to={toMovies()} />
-      </Route>
-    </Switch>
-  </HashRouter>
-);
+  useEffect(() => {
+    dispatch(fetchMovieGenresLoading());
+  }, []);
+
+  return (
+    <HashRouter>
+      <TopBar />
+
+      <Switch>
+        <Route path={toMovies()}>
+          <MoviesList />
+        </Route>
+        <Route path={toMovie()}>
+          <MoviePage />
+        </Route>
+        <Route path={toPeople()}>
+          <PeopleList />
+        </Route>
+        <Route path={toProfile()}>
+          <Profile />
+        </Route>
+        <Route>
+          <Redirect to={toMovies()} />
+        </Route>
+      </Switch>
+    </HashRouter>
+  );
+};

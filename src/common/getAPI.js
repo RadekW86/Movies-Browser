@@ -1,4 +1,4 @@
-export const IMAGE_PATH = "https://image.tmdb.org/t/p/w500/";
+export const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
 const KEY_API = "445d0cbde8fc680f93bc54bd75a8924d";
 const BASE_PATH = "https://api.themoviedb.org/3";
 let URL_API;
@@ -29,6 +29,9 @@ export const useGetAPI = async (referenceType, param1, param2) => {
     case "peopleSearch":
       URL_API = `${BASE_PATH}/search/person?query=${param2}&api_key=${KEY_API}&language=en-US&page=${param1}`;
       break;
+    case "movieGenres":
+      URL_API = `${BASE_PATH}/genre/movie/list?api_key=${KEY_API}&language=en`;
+
   }
 
   const response = await fetch(URL_API);

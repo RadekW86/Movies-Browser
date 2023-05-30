@@ -4,6 +4,7 @@ import moviePageReducers from "../features/movies/MoviePage/moviePageSlice";
 import peopleReducers from "../features/people/PeopleList/peopleSlice";
 import profileReducers from "../features/people/Profile/profileSlice";
 import searchReducers from "../TopBar/Search/searchSlice";
+import movieGenresReducers from "../features/movies/movieGenresSlice";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./rootSaga";
 
@@ -16,6 +17,7 @@ export const store = configureStore({
     peopleList: peopleReducers,
     profilePage: profileReducers,
     searchModule: searchReducers,
+    movieGenres: movieGenresReducers,
   },
   middleware: [sagaMiddleware],
 });

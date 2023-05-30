@@ -101,11 +101,10 @@ export const ContainerInf = styled.div`
 `;
 
 export const DescriptionWrapper = styled.div`
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 8px;
+  padding-top: 8px; */
   margin-bottom: 16px;
-  padding: 0;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     margin-bottom: 12px;
@@ -139,7 +138,7 @@ export const NameTitle = styled.h3`
 `;
 
 export const ProductionInf = styled.p`
-  margin: 0;
+  margin: 8px 0;
   font-weight: 400;
   font-size: 16px;
   line-height: ${({ theme }) => theme.lineHeight.m};
@@ -149,41 +148,14 @@ export const ProductionInf = styled.p`
   ${({ movie }) =>
     movie &&
     css`
+      font-size: 16px;
       text-align: start;
+      margin: 8px 0;
+      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+        font-size: 13px;
+        margin: 4px 0;
+      }
     `};
-`;
-
-export const MovieGenresWrapper = styled.div`
-  margin: 0 0 30px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 0;
-
-  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 0 16px 0 0;
-  }
-`;
-
-export const MovieGenre = styled.div`
-  padding: 8px 16px;
-  border-radius: 5px;
-  align-items: center;
-  font-size: 14px;
-  display: flex;
-  gap: 8px;
-  height: 36px;
-  border: none;
-  background: ${({ theme }) => theme.colors.grey};
-
-  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    padding: 4px 8px;
-    height: 24px;
-    font-size: 10px;
-  }
 `;
 
 export const MovieRating = styled.div`
