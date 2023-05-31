@@ -5,6 +5,7 @@ import {
   fetchMovieGenresSuccess,
 } from "./movieGenresSlice";
 import { useGetAPI } from "../../common/getAPI";
+import { fetchMoviesError } from "./MoviesList/moviesSlice";
 
 function* watchFetchMovieGenresHandler() {
   try {
@@ -12,6 +13,7 @@ function* watchFetchMovieGenresHandler() {
     yield put(fetchMovieGenresSuccess(movieGenres));
   } catch (error) {
     yield put(fetchMovieGenresError());
+    yield put(fetchMoviesError());
   }
 }
 
