@@ -13,6 +13,8 @@ This app is in the development stage. Current deploy involves:
 <li>detailed profile credits page</li>
 <li>interactive links between items</li>
 <li>loading & error page</li>
+<li>interactive search field</li>
+<li>search reults/no results for both people and movies</li>
 <li>all presented data fed from API (themoviedb.org)</li>
 </ul>
  
