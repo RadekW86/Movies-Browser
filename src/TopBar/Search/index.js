@@ -4,7 +4,6 @@ import {
   disengage,
   engage,
   selectResultsPage,
-  selectQuery,
   selectSearchType,
   setQuery,
 } from "./searchSlice";
@@ -18,7 +17,6 @@ export const Search = () => {
   const searchType = useSelector(selectSearchType);
   const placeholder = `Search for ${searchType}...`;
   const setQueryParameters = useSetQueryParameter();
-  const userQuery = useSelector(selectQuery);
   const page = useSelector(selectResultsPage);
 
   useEffect(() => {
@@ -38,7 +36,7 @@ export const Search = () => {
 
   return (
     <StyledInput
-      value={userQuery}
+      value={input}
       placeholder={placeholder}
       onChange={onInputChange}
     />
