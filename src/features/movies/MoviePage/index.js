@@ -16,7 +16,10 @@ import {
   fetchMoviePageLoading,
 } from "./moviePageSlice";
 import { useEffect } from "react";
-import { setSearchTypeMovie } from "../../../TopBar/Search/searchSlice";
+import {
+  resetQuery,
+  setSearchTypeMovie,
+} from "../../../TopBar/Search/searchSlice";
 
 export const MoviePage = () => {
   const params = useParams();
@@ -29,6 +32,7 @@ export const MoviePage = () => {
 
   useEffect(() => {
     dispatch(setSearchTypeMovie());
+    dispatch(resetQuery(""));
     dispatch(fetchMoviePageLoading(movie_id));
   }, []);
 
