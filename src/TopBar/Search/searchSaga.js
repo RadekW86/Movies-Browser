@@ -3,7 +3,6 @@ import {
   fetchMoviesError,
 } from "../../features/movies/MoviesList/moviesSlice";
 import {
-  fetchPeopleLoading,
   fetchPeopleSuccess,
   fetchPeopleError,
 } from "../../features/people/PeopleList/peopleSlice";
