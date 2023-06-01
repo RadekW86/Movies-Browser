@@ -22,6 +22,7 @@ export const StyledSection = styled.section`
       @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
         padding-top: 22px;
         padding-bottom: 8px;
+        margin: 0 8px;
       }
     `}
 `;
