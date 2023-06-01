@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import { toMovies, toPeople } from "../core/routes";
 import { Search } from "./Search/index";
 import {
@@ -12,8 +13,11 @@ import {
   StyledTopSubContent,
   StyledNavLink,
 } from "./styled";
+import { resetQuery } from "./Search/searchSlice";
 
 export const TopBar = () => {
+  const dispatch = useDispatch();
+
   return (
     <StyledTopBar>
       <StyledTopContent>
@@ -25,10 +29,24 @@ export const TopBar = () => {
           <Navigation>
             <StyledList>
               <Item>
-                <StyledNavLink to={toMovies}>MOVIES</StyledNavLink>
+                <StyledNavLink
+                  to={toMovies}
+                  onClick={() => {
+                    dispatch(resetQuery(""));
+                  }}
+                >
+                  MOVIES
+                </StyledNavLink>
               </Item>
               <Item>
-                <StyledNavLink to={toPeople}>PEOPLE</StyledNavLink>
+                <StyledNavLink
+                  to={toPeople}
+                  onClick={() => {
+                    dispatch(resetQuery(""));
+                  }}
+                >
+                  PEOPLE
+                </StyledNavLink>
               </Item>
             </StyledList>
           </Navigation>
