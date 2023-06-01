@@ -145,7 +145,6 @@ export const MovieGenresWrapper = styled.ul`
 `;
 
 export const MovieGenre = styled.li`
-  margin-bottom: 30px;
   padding: 8px 16px;
   border-radius: 5px;
   align-items: center;
@@ -166,8 +165,8 @@ export const MovieGenre = styled.li`
 
 export const MovieRating = styled.div`
   display: flex;
-  align-items: end;
-  gap: 14px;
+  align-items: start;
+  gap: 8px;
   margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
@@ -192,6 +191,7 @@ export const Rate = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 13px;
+   align-self: center;
   }
 `;
 
@@ -203,11 +203,21 @@ export const MaxRate = styled.span`
   color: ${({ theme }) => theme.colors.darkerGrey};
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    font-size: 13px;
+    display: none; 
   }
 `;
 
-export const Votes = styled(MaxRate)`
+export const Votes = styled.span`
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: ${({ theme }) => theme.lineHeight.m};
+  color: ${({ theme }) => theme.colors.darkerGrey};
+  align-self: flex-end;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    font-size: 13px;
+  }
 `;
 
 export const Description = styled.p`
@@ -243,9 +253,9 @@ export const InformationWrapper = styled.div`
 `;
 
 export const InformationFiled = styled.div`
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-gap: 8px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 14px;

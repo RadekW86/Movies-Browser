@@ -75,10 +75,12 @@ export const RateWrapper = styled.div`
 `;
 
 export const StyledStarIcon = styled(StarIcon)`
-  width: 40px;
+  width: 60px;
+  transform: scale(1.7);
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     width: 16px;
+    transform: scale(1);
   }
 `;
 
@@ -108,6 +110,6 @@ export const Votes = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 10px;
-    margin-bottom: 0;
+    margin-bottom: 0; 
   }
 `;
