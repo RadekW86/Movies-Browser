@@ -15,7 +15,10 @@ import {
   fetchProfileLoading,
 } from "./profileSlice";
 import { useEffect } from "react";
-import { setSearchTypeProfile } from "../../../TopBar/Search/searchSlice";
+import {
+  resetQuery,
+  setSearchTypeProfile,
+} from "../../../TopBar/Search/searchSlice";
 
 export const Profile = () => {
   const params = useParams();
@@ -28,6 +31,7 @@ export const Profile = () => {
 
   useEffect(() => {
     dispatch(setSearchTypeProfile());
+    dispatch(resetQuery(""));
     dispatch(fetchProfileLoading(profile_id));
   }, []);
 

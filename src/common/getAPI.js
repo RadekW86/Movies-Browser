@@ -31,7 +31,7 @@ export const useGetAPI = async (referenceType, param1, param2) => {
       break;
     case "movieGenres":
       URL_API = `${BASE_PATH}/genre/movie/list?api_key=${KEY_API}&language=en`;
-
+      break;
   }
 
   const response = await fetch(URL_API);

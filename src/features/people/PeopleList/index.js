@@ -18,11 +18,11 @@ import { useGetQueryParameter } from "../../../common/setQueryParameters";
 import { useEffect } from "react";
 import {
   setSearchTypeProfile,
-  setQuery,
   selectEngaged,
   setPage,
   disengage,
   selectQuery,
+  resetQuery,
 } from "../../../TopBar/Search/searchSlice";
 import { NoResults } from "../../../common/content/NoResults";
 
@@ -39,8 +39,7 @@ export const PeopleList = () => {
 
   useEffect(() => {
     dispatch(setSearchTypeProfile());
-    dispatch(setQuery(""));
-    dispatch(disengage());
+    dispatch(resetQuery(""));
   }, []);
 
   useEffect(() => {

@@ -34,6 +34,11 @@ const searchModuleSlice = createSlice({
       ...state,
       resultsPage: page,
     }),
+    resetQuery: (state, { payload: userQuery }) => ({
+      ...state,
+      query: userQuery,
+      engaged: false,
+    }),
   },
 });
 
@@ -44,6 +49,7 @@ export const {
   engage,
   disengage,
   setPage,
+  resetQuery,
 } = searchModuleSlice.actions;
 
 export const selectSearchModuleSlice = (state) => state.searchModule;

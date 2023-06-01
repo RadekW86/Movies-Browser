@@ -1,11 +1,12 @@
 import {
   fetchMoviesSuccess,
   fetchMoviesError,
+  fetchMoviesLoading,
 } from "../../features/movies/MoviesList/moviesSlice";
 import {
-  fetchPeopleLoading,
   fetchPeopleSuccess,
   fetchPeopleError,
+  fetchPeopleLoading,
 } from "../../features/people/PeopleList/peopleSlice";
 import { useGetAPI } from "../../common/getAPI";
 import {
@@ -27,6 +28,7 @@ function* watchSearchHandler() {
   if (engaged) {
     if (searchType === "movies") {
       try {
+        yield put(fetchMoviesLoading());
         const movies = yield call(
           useGetAPI,
           "moviesSearch",
@@ -39,6 +41,7 @@ function* watchSearchHandler() {
       }
     } else {
       try {
+        yield put(fetchPeopleLoading());
         const people = yield call(
           useGetAPI,
           "peopleSearch",
