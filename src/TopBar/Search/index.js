@@ -5,6 +5,7 @@ import {
   engage,
   selectResultsPage,
   selectSearchType,
+  selectQuery,
   setQuery,
 } from "./searchSlice";
 import { useSetQueryParameter } from "../../common/setQueryParameters";
@@ -14,6 +15,7 @@ import { useEffect } from "react";
 export const Search = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
+  const userQuery = useSelector(selectQuery);
   const searchType = useSelector(selectSearchType);
   const placeholder = `Search for ${searchType}...`;
   const setQueryParameters = useSetQueryParameter();
@@ -24,8 +26,15 @@ export const Search = () => {
     input === "" ? dispatch(disengage()) : dispatch(engage());
   }, [input]);
 
+  useEffect(() => {
+    if (userQuery === "") {
+      setInput("");
+    } else {
+    }
+  }, [userQuery]);
+
   const onInputChange = ({ target }) => {
-    setInput(target.value.trim());
+    setInput(target.value);
     setQueryParameters({
       nameValue: "page",
       value: page,
