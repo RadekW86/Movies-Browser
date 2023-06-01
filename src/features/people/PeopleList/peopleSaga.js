@@ -1,17 +1,22 @@
-import { put, call, takeLatest } from "redux-saga/effects";
+import { put, call, takeLatest, select } from "redux-saga/effects";
 import {
   fetchPeopleError,
   fetchPeopleLoading,
   fetchPeopleSuccess,
 } from "./peopleSlice";
 import { useGetAPI } from "../../../common/getAPI";
+import { selectEngaged } from "../../../TopBar/Search/searchSlice";
 
 function* watchFetchPeopleHandler({ payload: page }) {
-  try {
-    const people = yield call(useGetAPI, "peopleList", page);
-    yield put(fetchPeopleSuccess(people));
-  } catch (error) {
-    yield put(fetchPeopleError());
+  const engaged = yield select(selectEngaged);
+  if (!engaged) {
+    try {
+      const people = yield call(useGetAPI, "peopleList", page);
+      yield put(fetchPeopleSuccess(people));
+    } catch (error) {
+      yield put(fetchPeopleError());
+    }
+  } else {
   }
 }
 
