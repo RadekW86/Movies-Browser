@@ -6,6 +6,7 @@ export const useSetQueryParameter = () => {
 
   const setQueryParameter = ({ nameValue, value, nameValue2, value2 }) => {
     const searchParams = new URLSearchParams(location.search);
+    const baseUrl = location.pathname.split("/")[1];
 
     if (value2 === undefined) {
       searchParams.delete(nameValue2);
@@ -17,7 +18,7 @@ export const useSetQueryParameter = () => {
       searchParams.set(nameValue, value);
     }
 
-    history.push(`${location.pathname}?${searchParams.toString()}`);
+    history.push(`/${baseUrl}?${searchParams.toString()}`);
   };
 
   return setQueryParameter;

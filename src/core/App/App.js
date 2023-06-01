@@ -26,17 +26,17 @@ export const App = () => {
       <TopBar />
 
       <Switch>
+      <Route path={toMovie()}>
+          <MoviePage />
+        </Route>
         <Route path={toMovies()}>
           <MoviesList />
         </Route>
-        <Route path={toMovie()}>
-          <MoviePage />
+        <Route path={toProfile()}>
+          <Profile />
         </Route>
         <Route path={toPeople()}>
           <PeopleList />
-        </Route>
-        <Route path={toProfile()}>
-          <Profile />
         </Route>
         <Route>
           <Redirect to={toMovies()} />
