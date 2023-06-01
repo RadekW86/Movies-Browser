@@ -68,6 +68,7 @@ export const MoviePage = () => {
                     poster={moviePage.poster_path}
                     productionYear={moviePage.release_date}
                     description={moviePage.overview}
+                    firstInformation={moviePage.production_countries}
                     secondInformation={moviePage.release_date}
                     genres={moviePage.genres}
                     rate={moviePage.vote_average}

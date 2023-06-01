@@ -232,6 +232,27 @@ export const Description = styled.p`
   }
 `;
 
+export const ProductionWrapper = styled.div`
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+`;
+
+export const ProductionItem = styled.li`
+  line-height: ${({ theme }) => theme.lineHeight.xs};
+  white-space: break-spaces;
+  font-size: 18px;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    font-size: 13px;
+  }
+
+  &:not(:last-child)::after {
+    content: ", ";
+  }
+`;
+
 export const InformationWrapper = styled.div`
   display: flex;
   flex-direction: column;
