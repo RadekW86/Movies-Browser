@@ -65,38 +65,50 @@ export const MainTile = ({
                 </>
               )}
             </NameInformation>
-            {movie ? (
-              <ProductionWrapper>
-                {firstInformation.map((country) => (
-                  <ProductionItem key={country.id}>
-                    {country.name}
-                  </ProductionItem>
-                ))}
-              </ProductionWrapper>
+            {firstInformation === null ? (
+              "n/a"
             ) : (
-              <Information>
-                {new Date(firstInformation).toLocaleString("pl-PL", {
-                  day: "numeric",
-                  month: "numeric",
-                  year: "numeric",
-                })}
-              </Information>
+              <>
+                {movie ? (
+                  <ProductionWrapper>
+                    {firstInformation.map((country) => (
+                      <ProductionItem key={country.id}>
+                        {country.name}
+                      </ProductionItem>
+                    ))}
+                  </ProductionWrapper>
+                ) : (
+                  <Information>
+                    {new Date(firstInformation).toLocaleString("pl-PL", {
+                      day: "numeric",
+                      month: "numeric",
+                      year: "numeric",
+                    })}
+                  </Information>
+                )}
+              </>
             )}
           </InformationFiled>
           <InformationFiled>
             <NameInformation movie={movie}>
               {movie ? "Release date:" : "Place of birth:"}
             </NameInformation>
-            {movie ? (
-              <Information>
-                {new Date(secondInformation).toLocaleString("pl-PL", {
-                  day: "numeric",
-                  month: "numeric",
-                  year: "numeric",
-                })}
-              </Information>
+            {secondInformation === null ? (
+              "n/a"
             ) : (
-              secondInformation
+              <>
+                {movie ? (
+                  <Information>
+                    {new Date(secondInformation).toLocaleString("pl-PL", {
+                      day: "numeric",
+                      month: "numeric",
+                      year: "numeric",
+                    })}
+                  </Information>
+                ) : (
+                  secondInformation
+                )}
+              </>
             )}
           </InformationFiled>
         </InformationWrapper>
