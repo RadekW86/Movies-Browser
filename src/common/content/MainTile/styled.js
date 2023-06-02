@@ -98,6 +98,12 @@ export const DescriptionWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     margin-bottom: 12px;
+    grid-gap: 12px;
+    margin: 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    margin-bottom: 12px;
     grid-gap: 4px;
     margin: 0;
   }
@@ -146,10 +152,6 @@ export const MovieGenresWrapper = styled.ul`
   flex-wrap: wrap;
   align-items: center;
   padding: 0;
-
-  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    gap: 8px;
-  }
 `;
 
 export const MovieGenre = styled.li`
@@ -265,12 +267,20 @@ export const ProductionItem = styled.li`
 `;
 
 export const InformationWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1f 1fr;
+  gap: 8px;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    gap: 0;
+  }
+
   ${({ movie }) =>
     movie &&
     css`
       display: flex;
-      flex-direction: column;
       gap: 8px;
+      flex-direction: column;
 
       @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
         margin: 0;
@@ -282,10 +292,11 @@ export const InformationFiled = styled.div`
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin: 4px 0 0;
+  margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    grid-gap: 4px;
+    gap: 4px;
+    margin: 4px 0 0;
   }
 `;
 
