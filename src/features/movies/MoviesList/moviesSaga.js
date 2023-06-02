@@ -6,6 +6,7 @@ import {
 } from "./moviesSlice";
 import { useGetAPI } from "../../../common/getAPI";
 import { selectMovieGenresState } from "../movieGenresSlice";
+import { selectEngaged } from "../../../TopBar/Search/searchSlice";
 
 function* loader(page) {
   const genresState = yield select(selectMovieGenresState);
@@ -19,10 +20,14 @@ function* loader(page) {
 }
 
 function* watchFetchMoviesHandler({ payload: page }) {
-  try {
-    yield retry(100, 20, loader, page);
-  } catch (error) {
-    yield put(fetchMoviesError());
+  const engaged = yield select(selectEngaged);
+  if (!engaged) {
+    try {
+      yield retry(100, 20, loader, page);
+    } catch (error) {
+      yield put(fetchMoviesError());
+    }
+  } else {
   }
 }
 
