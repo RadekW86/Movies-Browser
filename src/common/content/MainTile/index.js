@@ -48,13 +48,13 @@ export const MainTile = ({
     )}
     <ContainerInf>
       <DescriptionWrapper>
-        <NameTitle>{name}</NameTitle>
+        <NameTitle movie={movie}>{name}</NameTitle>
         {movie && (
           <ProductionYear>
             {productionYear ? new Date(productionYear).getFullYear() : ""}
           </ProductionYear>
         )}
-        <InformationWrapper>
+        <InformationWrapper movie={movie}>
           <InformationFiled>
             <NameInformation movie={movie}>
               {movie ? (
