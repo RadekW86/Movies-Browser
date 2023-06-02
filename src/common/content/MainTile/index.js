@@ -21,7 +21,9 @@ import {
   InformationWrapper,
   Span,
   InformationFiled,
-  MaxRate, 
+  MaxRate,
+  ProductionWrapper,
+  ProductionItem,
 } from "./styled";
 
 export const MainTile = ({
@@ -56,7 +58,7 @@ export const MainTile = ({
           <InformationFiled>
             <NameInformation movie={movie}>
               {movie ? (
-                "Production:"
+                "Production: "
               ) : (
                 <>
                   <Span>Date of </Span>Birth
@@ -64,7 +66,13 @@ export const MainTile = ({
               )}
             </NameInformation>
             {movie ? (
-              ""
+              <ProductionWrapper>
+                {firstInformation.map((country) => (
+                  <ProductionItem key={country.id}>
+                    {country.name}
+                  </ProductionItem>
+                ))}
+              </ProductionWrapper>
             ) : (
               <Information>
                 {new Date(firstInformation).toLocaleString("pl-PL", {
