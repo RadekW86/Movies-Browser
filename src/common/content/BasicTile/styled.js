@@ -122,6 +122,10 @@ export const NameTitle = styled.h3`
   text-align: center;
   cursor: pointer;
 
+  @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
+    font-size: 16px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 16px;
     margin: 8px 0 0;
