@@ -38,6 +38,7 @@ const searchModuleSlice = createSlice({
       ...state,
       query: userQuery,
       engaged: false,
+      resultsPage: 1,
     }),
   },
 });
