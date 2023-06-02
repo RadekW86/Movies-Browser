@@ -20,9 +20,7 @@ import {
   setSearchTypeMovie,
   selectEngaged,
   setPage,
-  disengage,
   selectQuery,
-  resetQuery,
 } from "../../../TopBar/Search/searchSlice";
 import { NoResults } from "../../../common/content/NoResults";
 
@@ -39,7 +37,6 @@ export const MoviesList = () => {
 
   useEffect(() => {
     dispatch(setSearchTypeMovie());
-    dispatch(resetQuery(""));
   }, []);
 
   useEffect(() => {

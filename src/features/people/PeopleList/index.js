@@ -20,9 +20,7 @@ import {
   setSearchTypeProfile,
   selectEngaged,
   setPage,
-  disengage,
   selectQuery,
-  resetQuery,
 } from "../../../TopBar/Search/searchSlice";
 import { NoResults } from "../../../common/content/NoResults";
 
@@ -39,7 +37,6 @@ export const PeopleList = () => {
 
   useEffect(() => {
     dispatch(setSearchTypeProfile());
-    dispatch(resetQuery(""));
   }, []);
 
   useEffect(() => {
