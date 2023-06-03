@@ -268,7 +268,7 @@ export const ProductionItem = styled.li`
 
 export const InformationWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1f 1fr;
+  grid-template-columns: 1fr;
   gap: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
