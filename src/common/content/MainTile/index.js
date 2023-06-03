@@ -73,9 +73,11 @@ export const MainTile = ({
                 ) : (
                   <>
                     <ProductionWrapper>
-                      {firstInformation.map((country) => (
+                      {firstInformation.map((country, index) => (
                         <ProductionItem key={country.id}>
-                          {country.name}
+                          {`${country.name}${
+                            index === firstInformation.length - 1 ? "" : ", "
+                          }`}
                         </ProductionItem>
                       ))}
                     </ProductionWrapper>
