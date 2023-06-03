@@ -20,9 +20,7 @@ import {
   setSearchTypeProfile,
   selectEngaged,
   setPage,
-  disengage,
   selectQuery,
-  resetQuery,
 } from "../../../TopBar/Search/searchSlice";
 import { NoResults } from "../../../common/content/NoResults";
 
@@ -39,14 +37,15 @@ export const PeopleList = () => {
 
   useEffect(() => {
     dispatch(setSearchTypeProfile());
-    dispatch(resetQuery(""));
   }, []);
 
   useEffect(() => {
     if (!engaged) {
       dispatch(fetchPeopleLoading(page));
     } else {
-      dispatch(setPage(page ? page : 1));
+      if (page !== "1") {
+        dispatch(setPage(page ? page : 1));
+      }
     }
   }, [page, engaged]);
 

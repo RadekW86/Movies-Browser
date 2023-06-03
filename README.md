@@ -30,6 +30,11 @@ This app is in the development stage. Current deploy involves:
 <li>reduxjs/toolkit</li>
 </ul>
 
+## This project was created by:
+- [Jakub Jachacz](https://github.com/JakubJachacz)
+- [Angelika Krygier](https://github.com/AngelikaKrygier)
+- [Radosław Włodarski](https://github.com/RadekW86)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
