@@ -43,7 +43,9 @@ export const MoviesList = () => {
     if (!engaged) {
       dispatch(fetchMoviesLoading(page));
     } else {
-      dispatch(setPage(page ? page : 1));
+      if (page !== "1") {
+        dispatch(setPage(page ? page : 1));
+      }
     }
   }, [page, engaged]);
 
