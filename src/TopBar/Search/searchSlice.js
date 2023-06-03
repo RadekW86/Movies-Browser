@@ -20,7 +20,7 @@ const searchModuleSlice = createSlice({
     setQuery: (state, { payload: userQuery }) => ({
       ...state,
       query: userQuery,
-      resultsPage: 1,
+      resultsPage: "1",
     }),
     engage: (state) => ({
       ...state,
@@ -38,6 +38,7 @@ const searchModuleSlice = createSlice({
       ...state,
       query: userQuery,
       engaged: false,
+      resultsPage: "1",
     }),
   },
 });

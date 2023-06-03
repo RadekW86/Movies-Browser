@@ -21,7 +21,9 @@ import {
   InformationWrapper,
   Span,
   InformationFiled,
-  MaxRate, 
+  MaxRate,
+  ProductionWrapper,
+  ProductionItem,
 } from "./styled";
 
 export const MainTile = ({
@@ -46,49 +48,76 @@ export const MainTile = ({
     )}
     <ContainerInf>
       <DescriptionWrapper>
-        <NameTitle>{name}</NameTitle>
+        <NameTitle movie={movie}>{name}</NameTitle>
         {movie && (
           <ProductionYear>
             {productionYear ? new Date(productionYear).getFullYear() : ""}
           </ProductionYear>
         )}
-        <InformationWrapper>
+        <InformationWrapper movie={movie}>
           <InformationFiled>
             <NameInformation movie={movie}>
               {movie ? (
-                "Production:"
+                "Production: "
               ) : (
                 <>
                   <Span>Date of </Span>Birth
                 </>
               )}
             </NameInformation>
-            {movie ? (
-              ""
-            ) : (
-              <Information>
-                {new Date(firstInformation).toLocaleString("pl-PL", {
-                  day: "numeric",
-                  month: "numeric",
-                  year: "numeric",
-                })}
-              </Information>
-            )}
+
+            <>
+              {movie ? (
+                firstInformation.length === 0 ? (
+                  "n/a"
+                ) : (
+                  <>
+                    <ProductionWrapper>
+                      {firstInformation.map((country, index) => (
+                        <ProductionItem key={country.id}>
+                          {`${country.name}${
+                            index === firstInformation.length - 1 ? "" : ", "
+                          }`}
+                        </ProductionItem>
+                      ))}
+                    </ProductionWrapper>
+                  </>
+                )
+              ) : !firstInformation ? (
+                "n/a"
+              ) : (
+                <>
+                  <Information>
+                    {new Date(firstInformation).toLocaleString("pl-PL", {
+                      day: "numeric",
+                      month: "numeric",
+                      year: "numeric",
+                    })}
+                  </Information>
+                </>
+              )}
+            </>
           </InformationFiled>
           <InformationFiled>
             <NameInformation movie={movie}>
               {movie ? "Release date:" : "Place of birth:"}
             </NameInformation>
-            {movie ? (
-              <Information>
-                {new Date(secondInformation).toLocaleString("pl-PL", {
-                  day: "numeric",
-                  month: "numeric",
-                  year: "numeric",
-                })}
-              </Information>
+            {!secondInformation ? (
+              "n/a"
             ) : (
-              secondInformation
+              <>
+                {movie ? (
+                  <Information>
+                    {new Date(secondInformation).toLocaleString("pl-PL", {
+                      day: "numeric",
+                      month: "numeric",
+                      year: "numeric",
+                    })}
+                  </Information>
+                ) : (
+                  secondInformation
+                )}
+              </>
             )}
           </InformationFiled>
         </InformationWrapper>

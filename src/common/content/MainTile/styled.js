@@ -98,7 +98,13 @@ export const DescriptionWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
     margin-bottom: 12px;
-    grid-gap: 8px;
+    grid-gap: 12px;
+    margin: 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    margin-bottom: 12px;
+    grid-gap: 4px;
     margin: 0;
   }
 `;
@@ -112,8 +118,16 @@ export const NameTitle = styled.h3`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 21px;
-    margin: 0;
+    margin: 0 0 8px;
   }
+
+  ${({ movie }) =>
+    movie &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+        margin: 0;
+      }
+    `}
 `;
 
 export const ProductionYear = styled.p`
@@ -155,7 +169,7 @@ export const MovieGenre = styled.li`
   border: none;
   background: ${({ theme }) => theme.colors.grey};
 
-  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) { 
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     padding: 4px 8px;
     height: 19px;
     font-size: 10px;
@@ -167,17 +181,15 @@ export const MovieRating = styled.div`
   align-items: start;
   gap: 8px;
   margin: 0;
-
-  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    gap: 8px;
-  }
 `;
 
 export const StyledStarIcon = styled(StarIcon)`
   width: 24px;
+  height: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     width: 16px;
+    height: 16px;
   }
 `;
 
@@ -202,7 +214,7 @@ export const MaxRate = styled.span`
   color: ${({ theme }) => theme.colors.darkerGrey};
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    display: none; 
+    display: none;
   }
 `;
 
@@ -241,24 +253,54 @@ export const Description = styled.p`
   }
 `;
 
-export const InformationWrapper = styled.div`
+export const ProductionWrapper = styled.div`
+  list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+`;
+
+export const ProductionItem = styled.li`
+  line-height: ${({ theme }) => theme.lineHeight.xs};
+  white-space: break-spaces;
+  font-size: 18px;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    font-size: 13px;
+  }
+`;
+
+export const InformationWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    margin: 0;
+    gap: 0;
   }
+
+  ${({ movie }) =>
+    movie &&
+    css`
+      display: flex;
+      gap: 8px;
+      flex-direction: column;
+
+      @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+        margin: 0;
+      }
+    `}
 `;
 
 export const InformationFiled = styled.div`
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    font-size: 14px;
-    grid-gap: 4px;
+    gap: 4px;
+    margin: 4px 0 0;
   }
 `;
 
@@ -288,6 +330,7 @@ export const Information = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 13px;
+    margin: 0 0 4px;
   }
 `;
 
