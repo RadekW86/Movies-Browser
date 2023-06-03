@@ -65,19 +65,26 @@ export const MainTile = ({
                 </>
               )}
             </NameInformation>
-            {firstInformation === null ? (
-              "n/a"
-            ) : (
-              <>
-                {movie ? (
-                  <ProductionWrapper>
-                    {firstInformation.map((country) => (
-                      <ProductionItem key={country.id}>
-                        {country.name}
-                      </ProductionItem>
-                    ))}
-                  </ProductionWrapper>
+
+            <>
+              {movie ? (
+                firstInformation.length === 0 ? (
+                  "n/a"
                 ) : (
+                  <>
+                    <ProductionWrapper>
+                      {firstInformation.map((country) => (
+                        <ProductionItem key={country.id}>
+                          {country.name}
+                        </ProductionItem>
+                      ))}
+                    </ProductionWrapper>
+                  </>
+                )
+              ) : !firstInformation ? (
+                "n/a"
+              ) : (
+                <>
                   <Information>
                     {new Date(firstInformation).toLocaleString("pl-PL", {
                       day: "numeric",
@@ -85,15 +92,15 @@ export const MainTile = ({
                       year: "numeric",
                     })}
                   </Information>
-                )}
-              </>
-            )}
+                </>
+              )}
+            </>
           </InformationFiled>
           <InformationFiled>
             <NameInformation movie={movie}>
               {movie ? "Release date:" : "Place of birth:"}
             </NameInformation>
-            {secondInformation === null ? (
+            {!secondInformation ? (
               "n/a"
             ) : (
               <>
