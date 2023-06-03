@@ -43,7 +43,7 @@ export const Poster = styled.img`
 `;
 
 export const NoPoster = styled.div`
-  width: 100%;
+  width: 100%; 
   border-radius: 5px;
   grid-row: span 2;
   display: flex;
@@ -148,10 +148,14 @@ export const MovieGenresWrapper = styled.ul`
   list-style: none;
   margin: 0;
   display: flex;
-  gap: 8px;
+  gap: 16px;
   flex-wrap: wrap;
   align-items: center;
   padding: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
+    gap: 8px; 
+  }
 `;
 
 export const MovieGenre = styled.li`
@@ -167,7 +171,7 @@ export const MovieGenre = styled.li`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     padding: 4px 8px;
-    height: 24px;
+    height: 19px;
     font-size: 10px;
   }
 `;
@@ -198,7 +202,7 @@ export const Rate = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 13px;
-    align-self: center;
+    padding-top: 6px;
   }
 `;
 

@@ -11,6 +11,7 @@ export const StyledSection = styled.section`
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     padding-top: 24px;
     padding-bottom: 24px;
+    margin: 0 16px;
   }
 
   ${({ fullpage }) =>
@@ -56,11 +57,11 @@ export const StyledContent = styled.div`
 export const StyledTiles = styled.ul`
   list-style: none;
   margin: 0;
-  padding: 12px;
+  padding: 0px;
   display: grid;
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    padding: 8px;
+    padding: 0px;
   }
 
   ${({ movies }) =>
@@ -86,7 +87,7 @@ export const StyledTiles = styled.ul`
 
       @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
         grid-template-columns: repeat(4, minmax(145px, 1fr));
-        justify-items: center;
+        justify-items: center; 
       }
       @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
         grid-template-columns: repeat(2, 1fr);

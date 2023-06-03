@@ -13,10 +13,10 @@ export const StyledBasicTile = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.boxShadow.basic};
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr; 
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
-    padding: 8px;
+    padding: 8px; 
   }
 
   ${({ movie }) =>
@@ -49,8 +49,8 @@ export const Poster = styled.img`
 `;
 
 export const NoPoster = styled.div`
-  height: 100%;
-  width: 100%;
+  height: 102%;
+  width: 100%; 
   border-radius: 5px;
   aspect-ratio: 2 / 3;
   display: flex;
@@ -121,6 +121,10 @@ export const NameTitle = styled.h3`
   color: ${({ theme }) => theme.colors.black};
   text-align: center;
   cursor: pointer;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.tabletMax}) {
+    font-size: 16px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakPoints.phoneMax}) {
     font-size: 16px;
