@@ -1,3 +1,4 @@
+import { nanoid } from "@reduxjs/toolkit";
 import { IMAGE_PATH } from "../../getAPI";
 import {
   StyledMainTile,
@@ -74,7 +75,7 @@ export const MainTile = ({
                   <>
                     <ProductionWrapper>
                       {firstInformation.map((country, index) => (
-                        <ProductionItem key={country.id}>
+                        <ProductionItem key={nanoid()}>
                           {`${country.name}${
                             index === firstInformation.length - 1 ? "" : ", "
                           }`}
