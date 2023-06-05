@@ -6,20 +6,9 @@
 [click to visit](https://jakubjachacz.github.io/Movies-Browser/)
 
 ## General info:
-This app is in the development stage. Current deploy involves:
-<ul>
-<li>Top bar with active navigation</li>
-<li>popular movies page with pagination</li>
-<li>popular people page with pagination</li>
-<li>detailed movie credits page</li>
-<li>detailed profile credits page</li>
-<li>interactive links between items</li>
-<li>loading & error page</li>
-<li>interactive search field</li>
-<li>search reults/no results for both people and movies</li>
-<li>all presented data fed from API (themoviedb.org)</li>
-</ul>
- 
+"Movies Browser" is an application for searching movies, actors, and browsing information about them. 
+It was created as part of a group project at the coding school YouCode.
+
 ## Technologies used:
 <ul>
 <li>JSX</li>
@@ -30,6 +19,9 @@ This app is in the development stage. Current deploy involves:
 <li>React Redux</li>
 <li>Redux-Saga</li>
 <li>Reduxjs/toolkit</li>
+<li>Error Handling</li>
+<li>Working with API</li>
+<li>Figma</li>
 </ul>
 
 ## This project was created by:
