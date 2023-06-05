@@ -1,5 +1,7 @@
 # Movies Browser
 
+![MoviesBrowser](https://github.com/JakubJachacz/Movies-Browser/assets/123166327/95de5703-e454-460f-8351-ef5c4754a9f0)
+
 ## DEMO:
 [click to visit](https://jakubjachacz.github.io/Movies-Browser/)
 
@@ -26,8 +28,8 @@ This app is in the development stage. Current deploy involves:
 <li>Styled Components</li>
 <li>React Router</li>
 <li>React Redux</li>
-<li>Redux-saga</li>
-<li>reduxjs/toolkit</li>
+<li>Redux-Saga</li>
+<li>Reduxjs/toolkit</li>
 </ul>
 
 ## This project was created by:
