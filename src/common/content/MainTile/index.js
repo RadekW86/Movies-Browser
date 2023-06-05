@@ -115,7 +115,7 @@ export const MainTile = ({
                     })}
                   </Information>
                 ) : (
-                  secondInformation
+                  <Information>{secondInformation}</Information>
                 )}
               </>
             )}
