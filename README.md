@@ -3,7 +3,7 @@
 ![MoviesBrowser](https://github.com/JakubJachacz/Movies-Browser/assets/123166327/95de5703-e454-460f-8351-ef5c4754a9f0)
 
 ## DEMO:
-[click to visit](https://jakubjachacz.github.io/Movies-Browser/)
+[click to visit](https://radekw86.github.io/Movies-Browser/)
 
 ## General info:
 "Movies Browser" is an application for searching movies, actors, and browsing information about them. 
