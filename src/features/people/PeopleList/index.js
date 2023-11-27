@@ -41,7 +41,7 @@ export const PeopleList = () => {
 
   useEffect(() => {
     if (!engaged) {
-      dispatch(fetchPeopleLoading(page));
+      dispatch(fetchPeopleLoading(page ? page : 1));
     } else {
       if (page !== "1") {
         dispatch(setPage(page ? page : 1));

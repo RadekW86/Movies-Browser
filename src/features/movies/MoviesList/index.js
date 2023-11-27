@@ -41,7 +41,7 @@ export const MoviesList = () => {
 
   useEffect(() => {
     if (!engaged) {
-      dispatch(fetchMoviesLoading(page));
+      dispatch(fetchMoviesLoading(page ? page : 1));
     } else {
       if (page !== "1") {
         dispatch(setPage(page ? page : 1));
